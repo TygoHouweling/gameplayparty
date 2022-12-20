@@ -14,10 +14,8 @@
         <a href="#" class="logo"><img src="./view/img/gpp.svg"></img></a>
         <div class="nav-links">
           <ul class="nav-menu">
-            <li class="active"><a href="">Home</a></li>
-            <li class="test"><a href="">About Us</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">Careers</a></li>
+          <li class="active"><a href="?cat=home">Home</a></li>
+            <li><a href="?cat=home&op=cinemasOverview">cinemas</a></li>
             <li><a href="">Contact</a></li>
           </ul>
         </div>

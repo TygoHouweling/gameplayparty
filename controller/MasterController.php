@@ -1,11 +1,14 @@
 <?php
 
-require_once('./model/config.php');
+require_once('./controller/HomeController.php');
 class MasterController
 {
 
+    private $homeController;
+
     public function __construct()
     {
+        $this->homeController = new HomeController;
     }
 
     public function handleRequest()
@@ -14,15 +17,12 @@ class MasterController
 
         switch ($cat) {
             case 'home':
-                $this->collectShowHome();
+                $this->homeController->handleRequest();
                 break;
             default:
-                $this->collectShowHome();
+                $this->homeController->handleRequest();
                 break;
         }
     }
 
-    private function collectShowHome(){
-        include('./view/home.php');
-    }
 }

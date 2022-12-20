@@ -5,6 +5,8 @@ if (gethostbyaddr($_SERVER['REMOTE_ADDR']) == '2a02-a444-4f28-1-a9a8-2f96-a2ff-5
     $username = "dbu4073961";
     $password = "TYz9vSJ!*%&M";
     $dbname = "dbs9476995";
+    
+    //laptop Tygo
 } elseif (gethostbyaddr($_SERVER['REMOTE_ADDR']) == 'LAPTOP-8DP1187P') {
     $servername = "127.0.0.1";
     $username = "root";

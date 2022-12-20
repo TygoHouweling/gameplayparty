@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../style/home.css">
+    <link rel="stylesheet" href="./view/style/home.css">
     <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="./view/js/main.js"></script>
 </head>
 <body>
     <nav class="navbar">
-        <a href="#" class="logo"><img src="../img/gpp.svg"></img></a>
+        <a href="#" class="logo"><img src="./view/img/gpp.svg"></img></a>
         <div class="nav-links">
           <ul class="nav-menu">
             <li class="active"><a href="">Home</a></li>
@@ -24,7 +24,7 @@
         <iconify-icon icon="bx:grid-alt" class="menu-hamburger"></iconify-icon>
       </nav>
       <article class="stack__card">
-        <figure class="span__50"> <img src="../img/001.jpg" ></img>
+        <figure class="span__50"> <img src="./view/img/001.jpg" ></img>
          
         </figure>
         <div class="stack__card__content">

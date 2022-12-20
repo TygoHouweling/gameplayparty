@@ -20,6 +20,9 @@ class HomeController
             case 'cinemasOverview':
                 $this->collectShowCinemas();
                 break;
+            case 'cinema':
+                $this->collectShowCinema();
+                break;
             default:
                 $this->collectShowHome();
                 break;
@@ -29,6 +32,11 @@ class HomeController
     private function collectShowCinemas()
     {
         $result = $this->HomeModel->showCinemas();
+        include('./view/cinemaOverview.php');
+    }
+    private function collectShowCinema()
+    {
+        $result = $this->HomeModel->showCinema();
         include('./view/cinema.php');
     }
     private function collectShowHome()

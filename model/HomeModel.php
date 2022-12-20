@@ -17,6 +17,13 @@ class HomeModel
 
         return($result);
     }
+    public function showCinema()
+    {
+        $sql = "SELECT * FROM cinemas WHERE cinema_id = " . $_GET['item'] ;
+        $result = $this->DataHandler->readsData($sql);
+        $result = $result->fetchAll(PDO::FETCH_ASSOC);
+        return($result);
+    }
 
     public function showHome()
     {

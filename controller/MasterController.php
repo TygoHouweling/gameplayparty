@@ -1,6 +1,7 @@
 <?php
 
 require_once('./controller/HomeController.php');
+require_once('./controller/AuthController.php');
 class MasterController
 {
 
@@ -9,6 +10,7 @@ class MasterController
     public function __construct()
     {
         $this->homeController = new HomeController;
+        $this->authController = new AuthController;
     }
 
     public function handleRequest()
@@ -19,10 +21,12 @@ class MasterController
             case 'home':
                 $this->homeController->handleRequest();
                 break;
+            case 'auth':
+                $this->authController->handleRequest();
+                break;
             default:
                 $this->homeController->handleRequest();
                 break;
         }
     }
-
 }

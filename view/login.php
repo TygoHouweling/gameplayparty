@@ -11,28 +11,63 @@ include('./view/header_home.php');
     ?>
 </span>
 
-<form method="POST" action="?cat=auth&op=login">
-    <input required type="text" name="email" placeholder="example@email.com">
-    <input required type="password" name="password">
-    <label for="disclaimer">
-        <ul>
-            <li>
-                Wachtwoord moet voldoen aan:
-                <ul>
+<form class="loginForm" method="POST" action="?cat=auth&op=login">
+    <table>
+        <tr>
+            <td>
+                <img class="loginFormImg" width="64px" height="64px" src="./view/img/icon.svg" alt="icon">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Login</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input required type="text" name="email" placeholder="example@email.com">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="loginLabel" for="email">example@gmail.com</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input required type="password" name="password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" class="loginLabel">
+                    <ul>
+                        <li>
+                            Wachtwoord moet voldoen aan:
+                            <ul>
 
-                    <li>8-12 karakters</li>
-                    <li>Minimaal 1 nummer & 1 cijfer</li>
-                </ul>
-            </li>
-            <li>
-                Mag voldoen aan:
-                <ul>
-                    <li>!@#$%</li>
-                </ul>
-            </li>
-        </ul>
+                                <li>8-12 karakters</li>
+                                <li>Minimaal 1 nummer & 1 cijfer</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Mag voldoen aan:
+                            <ul>
+                                <li>!@#$%</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="submit">
+            </td>
+        </tr>
+    </table>
+
     </label>
-    <input type="submit" name="submit">
 </form>
 
 <?php

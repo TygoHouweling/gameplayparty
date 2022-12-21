@@ -15,6 +15,7 @@ class HomeController
 
         switch ($op) {
             case 'home':
+                
                 $this->collectShowHome();
                 break;
             case 'cinemasOverview':

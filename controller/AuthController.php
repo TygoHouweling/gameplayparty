@@ -16,6 +16,10 @@ class AuthController
             case 'login':
                 $this->collectLoginRequest();
                 break;
+
+            case 'register':
+                $this->collectRegisterRequest();
+                break;
         }
     }
 
@@ -55,4 +59,32 @@ class AuthController
             include('./view/login.php');
         }
     }
+
+    public function collectRegisterRequest()
+    {
+        if (isset($_POST['submit'])) {
+
+            $password_pattern = '/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/';
+            if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && preg_match($password_pattern, $_POST['password'])) {
+                $fname = isset($_POST['user_fname']) ? $_POST['user_fname'] : null;
+                $lname = isset($_POST['user_lname']) ? $_POST['user_lname'] : null;
+                $province = isset($_POST['user_province']) ? $_POST['user_province'] : null;
+                $password = isset($_POST['password']) ? $_POST['password'] : null;
+                $email = isset($_POST['email']) ? $_POST['email'] : null;
+                $city = isset($_POST['city']) ? $_POST['city'] : null;
+                $postalcode = isset($_POST['postal_code']) ? $_POST['postal_code'] : null;
+                $street = isset($_POST['streetname']) ? $_POST['streetname'] : null;
+                $housenumber = isset($_POST['housenumber']) ? $_POST['housenumber'] : null;
+                $hnumber_addition = isset($_POST['housenumber_addition']) ? $_POST['housenumber_addition'] : null;
+
+                $register = $this->AuthModel->createUser($fname, $lname, $province, $password, $email, $city, $postalcode, $street, $housenumber, $hnumber_addition);
+                header('location:?cat=auth&op=login');
+            } else {
+                $_SESSION['error'] = 'Email of wachtwoord voldoet niet aan voorwaarden.';
+                include('./view/register.php');
+            }
+        }
+        include './view/register.php';
+    }
+
 }

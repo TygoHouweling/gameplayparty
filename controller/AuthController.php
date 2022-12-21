@@ -20,6 +20,9 @@ class AuthController
             case 'register':
                 $this->collectRegisterRequest();
                 break;
+            case 'logout':
+                $this->collectLogoutRequest();
+                break;
         }
     }
 
@@ -58,6 +61,21 @@ class AuthController
             $_SESSION['error'] = 'Geen overeenkomstige gebruikers gevonden';
             include('./view/login.php');
         }
+    }
+
+    public function collectLogoutRequest()
+    {
+        if (isset($_GET['logoutConfirm'])) {
+
+            unset($_SESSION['loggedIn']);
+            unset($_SESSION['user_fname']);
+            unset($_SESSION['user_lname']);
+            unset($_SESSION['user_role']);
+            unset($_SESSION['user_id']);
+            header('location:?cat=home');
+        }
+        var_dump($_SESSION);
+        include('./view/logoutConfirm.php');
     }
 
     public function collectRegisterRequest()

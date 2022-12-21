@@ -4,7 +4,7 @@ class Config
 {
     public function __construct()
     {
-        if (gethostbyaddr($_SERVER['REMOTE_ADDR']) == '2a02-a444-4f28-1-a9a8-2f96-a2ff-5297.fixed6.kpn.net') {
+        if (gethostbyaddr($_SERVER['REMOTE_ADDR']) == '145.120.143.197') {
             $this->servername = "rdbms.strato.de";
             $this->username = "dbu4073961";
             $this->password = "TYz9vSJ!*%&M";

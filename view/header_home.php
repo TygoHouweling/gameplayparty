@@ -27,6 +27,7 @@
                 <?php
                 } else {
                 ?>
+                    <li <?= isset($_GET['op']) && $_GET['op'] == 'register' ? 'class=active' : '' ?>><a href="?cat=auth&op=register">Registreren</a></li>
                     <li <?= isset($_GET['op']) && $_GET['op'] == 'login' ? 'class=active' : '' ?>><a href="?cat=auth&op=login">Login</a></li>
 
                 <?php

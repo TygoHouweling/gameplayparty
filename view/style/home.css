@@ -697,7 +697,6 @@ transition:all .25s;
   margin: 0 auto;
 }
 .form-module .toggle {
-  padding: 2px;
   cursor: pointer;
   position: absolute;
   top: 0;
@@ -723,6 +722,9 @@ transition:all .25s;
   font-size: 10px;
   line-height: 1;
   text-transform: uppercase;
+}
+.toggle i{
+  width:30px;
 }
 .form-module .toggle .tooltip:before {
   content: "";

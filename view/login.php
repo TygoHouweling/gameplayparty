@@ -17,7 +17,8 @@ include('./view/header_home.php');
 <!-- Button Mixin-->
 <!-- Form Module-->
 <div class="module form-module">
-  <div class="toggle"><iconify-icon icon="mdi:register" width="25" height="25"></iconify-icon>
+  <div class="toggle">
+    <i class="fa-solid fa-right-to-bracket"></i>
     <div class="tooltip">Registreren</div>
   </div>
   <div class="form">
@@ -38,7 +39,7 @@ include('./view/header_home.php');
       <button>Register</button>
     </form>
   </div>
-  <div class="cta"><a href="http://andytran.me">Forgot your password?</a></div>
+  <div class="cta"><a href="">Forgot your password?</a></div>
 </div>
 
 <!-- 
@@ -109,13 +110,14 @@ $('.toggle').click(function(){
     bool = false;
     $(".tooltip").hide().html("login").fadeIn();
     // Switches the Icon
-    $(".toggle").html('<iconify-icon icon="material-symbols:close" width="25" height="25"></iconify-icon>');
+    $(this).children('i').removeClass().toggleClass('fa-solid fa-xmark');
   } else{
     bool = true;
     $(".tooltip").hide().html("Registreren").fadeIn();
     // Switches the Icon
-    $(".toggle").html('<iconify-icon icon="mdi:register" width="25" height="25"></iconify-icon>');
+    $(this).children('i').removeClass().toggleClass('fa-solid fa-right-to-bracket');
   }
+
 
   // Switches the forms  
   $('.form').animate({
@@ -125,6 +127,8 @@ $('.toggle').click(function(){
     opacity: "toggle"
   }, "slow");
 });
+
+
 </script>
 <?php
 include('./view/footer_home.php');

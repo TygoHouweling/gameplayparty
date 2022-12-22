@@ -33,5 +33,21 @@ class AuthModel
     }
   }
 
+  public function readAccount($id) {
+    try{
+        $sql = "SELECT * FROM `users` WHERE user_id='{$_SESSION['user_id']}'";
+        $results = $this->DataHandler->readData($sql);
+        return $results;
+    } catch (Exception $e){
+        throw $e;
+    }
+}
+
+public function updateUser($id, $firstname, $lastname, $email, $password, $province, $city, $street, $housenumber, $hnumber_addition, $postalcode, $role) {
+  $sql = "UPDATE `users` SET `user_fname`='{$firstname}', `user_lname`='{$lastname}', `email`='{$email}', `password`='{$password}', `user_province`='{$province}', `city`='{$city}', `streetname`='{$street}', `housenumber`='{$housenumber}', `housenumber_addition`='{$hnumber_addition}', `postal_code`='{$postalcode}', `role`='{$role}' WHERE `user_id`='{$id}'";
+
+  $results = $this->DataHandler->updateData($sql);
+  return $results;
+  }
 
 }

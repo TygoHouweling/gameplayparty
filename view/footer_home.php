@@ -4,19 +4,19 @@
 
     <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.linkedin.com/in/nathanael-dousa-488a69209/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.instagram.com/yung_n.d/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
 
   </div>
 
   <div class="footer-left">
 
     <p class="footer-links">
-      <a class="link-1" href="#">Home</a>
+      <a class="link-1" href="index.php?cat=home">Home</a>
       <?php
-      if (($_SESSION['loggedIn'])) {
+      if (isset($_SESSION['loggedIn'])) {
       ?>
-        <a href="?cat=home&op=createCinema">Bioscoop Toevoegen</a>
+        <a href="index.php?cat=home&op=createCinema">Bioscoop Toevoegen</a>
       <?php
       }
       ?>

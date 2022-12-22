@@ -15,28 +15,18 @@
 
 <body>
     <nav class="navbar">
-        <a href="#" class="logo"><img src="./view/img/gpp.svg"></img></a>
         <div class="nav-links">
             <ul class="nav-menu">
-                <li <?= !isset($_GET['op']) ? 'class=active' : '' ?>><a href="?cat=home">Home</a></li>
-                <li <?= isset($_GET['op']) && ($_GET['op'] == 'cinemasOverview' || $_GET['op'] == 'cinema') ? 'class=active' : '' ?>><a href="?cat=home&op=cinemasOverview">Bioscopen</a></li>
                 <?php
                 if (isset($_SESSION['loggedIn'])) {
                 ?>
                 <?php 
                 if (($_SESSION['user_role'] == 1) XOR ($_SESSION['user_role'] == 2)) {
                 ?>
-                    <li <?= isset($_GET['op']) && $_GET['op'] == 'createCinema' ? 'class=active' : '' ?>><a href="?cat=home&op=createCinema">Bioscoop Toevoegen</a></li>
+                    <li <?= isset($_GET['op']) && $_GET['op'] == 'createCinema' ? 'class=active' : '' ?>><a href="index.php?cat=home&op=createCinema">Bioscoop Toevoegen</a></li>
                 <?php
                     }
                 ?>
-                    <li <?= isset($_GET['op']) && $_GET['op'] == 'logout' ? 'class=active' : '' ?>><a href="?cat=auth&op=logout">logout</a></li>
-                <?php
-                } else {
-                ?>
-                    <li <?= isset($_GET['op']) && $_GET['op'] == 'register' ? 'class=active' : '' ?>><a href="?cat=auth&op=register">Registreren</a></li>
-                    <li <?= isset($_GET['op']) && $_GET['op'] == 'login' ? 'class=active' : '' ?>><a href="?cat=auth&op=login">Login</a></li>
-
                 <?php
                 }
                 ?>

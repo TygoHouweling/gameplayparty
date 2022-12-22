@@ -17,7 +17,7 @@ include('./view/header_home.php');
 <!-- Button Mixin-->
 <!-- Form Module-->
 <div class="module form-module">
-  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+  <div class="toggle"><iconify-icon icon="mdi:register" width="25" height="25"></iconify-icon>
     <div class="tooltip">Registreren</div>
   </div>
   <div class="form">
@@ -108,9 +108,13 @@ $('.toggle').click(function(){
   if(bool == true){
     bool = false;
     $(".tooltip").hide().html("login").fadeIn();
+    // Switches the Icon
+    $(".toggle").html('<iconify-icon icon="material-symbols:close" width="25" height="25"></iconify-icon>');
   } else{
     bool = true;
     $(".tooltip").hide().html("Registreren").fadeIn();
+    // Switches the Icon
+    $(".toggle").html('<iconify-icon icon="mdi:register" width="25" height="25"></iconify-icon>');
   }
 
   // Switches the forms  

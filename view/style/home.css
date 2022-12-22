@@ -697,6 +697,7 @@ transition:all .25s;
   margin: 0 auto;
 }
 .form-module .toggle {
+  padding: 2px;
   cursor: pointer;
   position: absolute;
   top: 0;

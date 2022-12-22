@@ -137,6 +137,27 @@
   
   advance();
 });
+
+// Toggle Function
+var bool = true; //set bool true for text manipulation
+$('.toggle').click(function(){
+  //switch text
+  if(bool == true){
+    bool = false;
+    $(".tooltip").hide().html("login").fadeIn();
+  } else{
+    bool = true;
+    $(".tooltip").hide().html("Registreren").fadeIn();
+  }
+
+  // Switches the forms  
+  $('.form').animate({
+    height: "toggle",
+    'padding-top': 'toggle',
+    'padding-bottom': 'toggle',
+    opacity: "toggle"
+  }, "slow");
+});
 </script>
 
 </html>

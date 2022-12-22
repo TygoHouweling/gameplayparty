@@ -11,6 +11,37 @@ include('./view/header_home.php');
     ?>
 </span>
 
+
+<!-- Form Mixin-->
+<!-- Input Mixin-->
+<!-- Button Mixin-->
+<!-- Form Module-->
+<div class="module form-module">
+  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+    <div class="tooltip">Registreren</div>
+  </div>
+  <div class="form">
+    <h2>Login to your account</h2>
+    <form  method="POST" action="?cat=auth&op=login">
+      <input required type="text" name="email" placeholder="example@email.com"/>
+      <input required type="password" name="password" placeholder="Wachtwoord"/>
+      <button>Login</button>
+    </form>
+  </div>
+  <div class="form">
+    <h2>Create an account</h2>
+    <form method='POST' action='index.php?cat=auth&op=register'>
+      <input type='text' id='user_fname' name='user_fname' roleholder='Voornaam' placeholder="Voornaam" required/>
+      <input type='text' id='user_lname' name='user_lname' roleholder='Achternaam' placeholder="Achternaam" required/>
+      <input type='text' id='email' name='email' roleholder='email' placeholder="Email" required/>
+      <input type='password' id='password' name='password' roleholder='Wachtwoord' placeholder="Wachtwoord" required/>
+      <button>Register</button>
+    </form>
+  </div>
+  <div class="cta"><a href="http://andytran.me">Forgot your password?</a></div>
+</div>
+
+<!-- 
 <form class="loginForm" method="POST" action="?cat=auth&op=login">
     <table>
         <tr>
@@ -68,7 +99,7 @@ include('./view/header_home.php');
     </table>
 
     </label>
-</form>
+</form> -->
 
 <?php
 include('./view/footer_home.php');

@@ -15,7 +15,7 @@ class HomeController
 
         switch ($op) {
             case 'home':
-                
+
                 $this->collectShowHome();
                 break;
             case 'cinemasOverview':
@@ -48,11 +48,10 @@ class HomeController
         $this->HomeModel->showHome();
         include('./view/home.php');
     }
-
     public function collectCreateCinema()
     {
         if (isset($_POST['submit'])) {
-            if (($_SESSION['user_role'] == 1) XOR ($_SESSION['user_role'] == 2)) {
+            if (($_SESSION['user_role'] == 1) xor ($_SESSION['user_role'] == 2)) {
 
 
                 $name = isset($_POST['cinema_name']) ? $_POST['cinema_name'] : null;
@@ -65,15 +64,14 @@ class HomeController
                 $description = isset($_POST['cinema_description']) ? $_POST['cinema_discription'] : null;
                 $image = isset($_POST['cinema_image']) ? $_POST['cinema_image'] : null;
 
-                $register = $this->HomeModel->createCinema($name, $housenumber, $hnumber_addition, $street, $postalcode, $city, $accessibility, $description, $image);
+                $register = $this->AdminModel->createCinema($name, $housenumber, $hnumber_addition, $street, $postalcode, $city, $accessibility, $description, $image);
                 header('location:?cat=home');
             } else {
                 header('location:?cat=home');
             }
-            } else {
-                $_SESSION['error'] = 'U bent iets vergeten in te vullen';
-            }
-                include './view/createCinema.php';
+        } else {
+            $_SESSION['error'] = 'U bent iets vergeten in te vullen';
         }
+        include './view/createCinema.php';
     }
-
+}

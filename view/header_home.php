@@ -30,13 +30,6 @@
                 <?php
                 if (isset($_SESSION['loggedIn'])) {
                 ?>
-                <?php 
-                if (($_SESSION['user_role'] == 1) XOR ($_SESSION['user_role'] == 2)) {
-                ?>
-                    <li <?= isset($_GET['op']) && $_GET['op'] == 'createCinema' ? 'class=active' : '' ?>><a href="?cat=home&op=createCinema">Bioscoop Toevoegen</a></li>
-                <?php
-                    }
-                ?>
                     <li <?= isset($_GET['op']) && $_GET['op'] == 'logout' ? 'class=active' : '' ?>><a href="?cat=auth&op=logout">logout</a></li>
                 <?php
                 } else {

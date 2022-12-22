@@ -12,7 +12,7 @@ if ($_SESSION['user_role'] == 0) {
     <table>
         <tr>
             <td>
-            <img class="cinemaImg" width="64px" height="64px" src="./view/img/icon.svg" alt="icon">
+                <img class="cinemaImg" width="64px" height="64px" src="./view/img/icon.svg" alt="icon">
             </td>
         </tr>
         <tr>
@@ -72,22 +72,23 @@ if ($_SESSION['user_role'] == 0) {
             <td>
                 <label for='cinema_description'> Beschrijving: </label><br>
                 <textarea id="mceDEMO" name="cinema_description"></textarea>
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.0/tinymce.min.js"
-                                    integrity="sha512-XQOOk3AOZDpVgRcau6q9Nx/1eL0ATVVQ+3FQMn3uhMqfIwphM9rY6twWuCo7M69rZPdowOwuYXXT+uOU91ktLw=="
-                                    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-                            <script>    tinymce.init({
-                                        selector: "#mceDEMO",
-                                        plugins: "save",
-                                        menubar: false,
-                                        toolbar: "save | styleselect | bold italic | alignleft aligncenter alignright alignjustify"
-                                }); </script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.0/tinymce.min.js" integrity="sha512-XQOOk3AOZDpVgRcau6q9Nx/1eL0ATVVQ+3FQMn3uhMqfIwphM9rY6twWuCo7M69rZPdowOwuYXXT+uOU91ktLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <script>
+                    tinymce.init({
+                        selector: "#mceDEMO",
+                        plugins: "save",
+                        menubar: false,
+                        toolbar: "save | styleselect | bold italic | alignleft aligncenter alignright alignjustify"
+                    });
+                </script>
             </td>
         </tr>
         <tr>
             <td>
-<input type="submit" name="submit">
+                <input type="submit" name="submit">
             </td>
         </tr>
+    </table>
 </form>
 
 <?php

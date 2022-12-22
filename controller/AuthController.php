@@ -74,7 +74,6 @@ class AuthController
             unset($_SESSION['user_id']);
             header('location:?cat=home');
         }
-        var_dump($_SESSION);
         include('./view/logoutConfirm.php');
     }
 
@@ -97,12 +96,15 @@ class AuthController
 
                 $register = $this->AuthModel->createUser($fname, $lname, $province, $password, $email, $city, $postalcode, $street, $housenumber, $hnumber_addition);
                 header('location:?cat=auth&op=login');
+                include('./view/register.php');
+
             } else {
                 $_SESSION['error'] = 'Email of wachtwoord voldoet niet aan voorwaarden.';
                 include('./view/register.php');
             }
+        } else {
+            include './view/register.php';
         }
-        include './view/register.php';
     }
 
 }

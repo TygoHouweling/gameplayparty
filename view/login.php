@@ -51,7 +51,7 @@ include('./view/header_home.php');
         </tr>
         <tr>
             <td>
-                <h3>Login</h3>
+                <h1>Login</h1>
             </td>
         </tr>
         <tr>

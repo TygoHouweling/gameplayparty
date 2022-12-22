@@ -20,6 +20,15 @@ class AuthController
             case 'register':
                 $this->collectRegisterRequest();
                 break;
+
+            case 'account':
+                $this->collectAccountRequest();
+                break;
+
+            case 'updateAccount':
+                $this->collectUpdateAccountRequest();
+                break;
+
             case 'logout':
                 $this->collectLogoutRequest();
                 break;
@@ -74,7 +83,6 @@ class AuthController
             unset($_SESSION['user_id']);
             header('location:?cat=home');
         }
-        var_dump($_SESSION);
         include('./view/logoutConfirm.php');
     }
 
@@ -97,12 +105,49 @@ class AuthController
 
                 $register = $this->AuthModel->createUser($fname, $lname, $province, $password, $email, $city, $postalcode, $street, $housenumber, $hnumber_addition);
                 header('location:?cat=auth&op=login');
+                include('./view/register.php');
+
             } else {
                 $_SESSION['error'] = 'Email of wachtwoord voldoet niet aan voorwaarden.';
                 include('./view/register.php');
             }
+        } else {
+            include './view/register.php';
         }
-        include './view/register.php';
+    }
+
+    public function collectAccountRequest() {
+        $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
+        // var_dump($id);
+        $array = $this->AuthModel->readAccount($id);
+        $result = $array->fetchAll(PDO::FETCH_ASSOC);
+
+        include 'view/readAccount.php';
+    }
+
+    public function collectUpdateAccountRequest(){
+
+        $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
+        $firstname = isset($_REQUEST['user_fname']) ? $_REQUEST['user_fname'] : null;
+        $lastname = isset($_REQUEST['user_lname']) ? $_REQUEST['user_lname'] : null;
+        $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
+        $password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
+        $province = isset($_REQUEST['user_province']) ? $_REQUEST['user_province'] : null;
+        $city = isset($_REQUEST['city']) ? $_REQUEST['city'] : null;
+        $street = isset($_REQUEST['streetname']) ? $_REQUEST['streetname'] : null;
+        $housenumber = isset($_REQUEST['housenumber']) ? $_REQUEST['housenumber'] : null;
+        $hnumber_addition = isset($_REQUEST['housenumber_addition']) ? $_REQUEST['housenumber_addition'] : null;
+        $postalcode = isset($_REQUEST['postal_code']) ? $_REQUEST['postal_code'] : null;
+        $role = isset($_REQUEST['role']) ? $_REQUEST['role'] : null;
+
+        if(isset($_POST['submit'])){
+
+        $array = $this->AuthModel->updateUser($id, $firstname, $lastname, $email, $password, $province, $city, $street, $housenumber, $hnumber_addition, $postalcode, $role);
+
+        }
+        $array = $this->AuthModel->readAccount($id);
+        $result = $array->fetchAll(PDO::FETCH_ASSOC);
+        include('view/updateAccount.php');
     }
 
 }

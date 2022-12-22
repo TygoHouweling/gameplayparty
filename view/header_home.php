@@ -21,8 +21,16 @@
                 <li <?= !isset($_GET['op']) ? 'class=active' : '' ?>><a href="?cat=home">Home</a></li>
                 <li <?= isset($_GET['op']) && ($_GET['op'] == 'cinemasOverview' || $_GET['op'] == 'cinema') ? 'class=active' : '' ?>><a href="?cat=home&op=cinemasOverview">Bioscopen</a></li>
                 <?php
+                if (isset($_SESSION['user_role']) && $_SESSION['user_role'] >= 1) {
+                ?>
+                    <li><a href="?cat=admin">Admin Paneel</a></li>
+                <?php
+                }
+                ?>
+                <?php
                 if (isset($_SESSION['loggedIn'])) {
                 ?>
+                    <li <?= isset($_GET['op']) && $_GET['op'] == 'account' ? 'class=active' : '' ?>><a href="?cat=auth&op=account">Uw Account</a></li>
                     <li <?= isset($_GET['op']) && $_GET['op'] == 'logout' ? 'class=active' : '' ?>><a href="?cat=auth&op=logout">logout</a></li>
                 <?php
                 } else {

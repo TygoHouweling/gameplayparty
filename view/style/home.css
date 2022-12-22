@@ -301,10 +301,26 @@ img {
   color: rgb(145, 145, 145);
 }
 
-.loginForm table tr td h3 {
+.loginForm table tr td h1 {
   display: flex;
   justify-content:center;
   color: #FFF;
+}
+
+.loginForm table tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.loginForm input[type=text], .loginForm select, .loginForm input[type=password] {
+  border: none;
+  border-radius: 2px;
+  width: 10vw;
+  padding: 0.4em;
+  margin-left: auto;
+  display: block;
+  color: #34495E;
+  cursor: pointer;
 }
 
 .loginForm input[type=submit]{
@@ -315,4 +331,11 @@ img {
   display: block;
   color: #34495E;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 768px){
+  .loginForm table tr {
+    display: flex;
+    flex-direction: column;
+  }
 }

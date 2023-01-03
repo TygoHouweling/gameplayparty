@@ -25,6 +25,9 @@ class AdminController
             case 'editHomepageItem':
                 $this->collectEditHomepageItem();
                 break;
+            case 'createHomepageItem':
+                $this->collectCreateHomepageItem();
+                break;
             default:
                 $this->collectShowAdminOverview();
         }
@@ -41,6 +44,23 @@ class AdminController
 
 
         include('./view/admin/readHomepageItems.php');
+    }
+
+    public function collectCreateHomepageItem()
+    {
+        if (!isset($_POST['submit'])) {
+            include('./view/admin/createHomepageItem.php');
+            return;
+        }
+
+        $header = $_REQUEST['header'];
+        $text = isset($_POST['text']) ? $_POST['text'] : null;
+        $img = isset($_FILES['img']) && $_FILES['img']['name'] != '' ? $this->imageUpload($_FILES['img']) : 'default.png';
+
+        $result = $this->AdminModel->createHomepageItem($header, $img, $text);
+
+        unset($_POST);
+        $this->collectReadHomepageItems();
     }
 
     public function collectEditHomepageItem()

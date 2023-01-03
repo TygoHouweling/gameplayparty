@@ -3,7 +3,7 @@
 include('./view/admin/admin_header.php');
 ?>
 
-<body>
+<body >
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -28,4 +28,6 @@ include('./view/admin/admin_header.php');
             ?>
         </tbody>
     </table>
+    <a href="?cat=admin&op=createHomepageItem"><i class="material-icons"> add</i></a>
+
 </body>

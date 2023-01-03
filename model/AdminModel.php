@@ -25,4 +25,9 @@ class AdminModel {
         $sql = "UPDATE homepage_area SET `header` = '$header', `img` = '$img', `text` = '$text' WHERE area_id = $item";
         $result = $this->dataHandler->updateData($sql);
     }
+
+    public function createHomepageItem($header, $img, $text) {
+        $sql = "INSERT INTO homepage_area (`homepage_id`,`header`,`img`,`text`) VALUES (1,'$header','$img','$text')";
+        $result = $this->dataHandler->createData($sql);
+    }
 }

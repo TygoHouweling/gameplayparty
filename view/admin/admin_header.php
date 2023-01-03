@@ -15,8 +15,6 @@
     <!----css3---->
     <link rel="stylesheet" href="./view/style/custom.css">
     <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-    <script src="https://cdn.tiny.cloud/1/magepb1tdsd8blvlls87gx4g4rjkfjopfhedmlg4i5yt0am2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <!-- TINYMCE -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +25,7 @@
 
     <!--google material icon-->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/m995pb24o07hubqacibw5bzdfas3misqw2fty0qcc7h4dg7s/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -74,7 +73,7 @@
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=editHomepage"><i class="material-icons">edit</i> Wijzig start pagina</a>
+                            <a href="?cat=admin&op=readHomepageItems"><i class="material-icons">edit</i> Wijzig start pagina</a>
                         </li>
                     <?php
                     }

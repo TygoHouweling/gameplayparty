@@ -3,10 +3,11 @@
 require_once('./model/AdminModel.php');
 class AdminController
 {
+    private $AdminModel;
 
     public function __construct()
     {
-        $this->adminModel = new AdminModel;
+        $this->AdminModel = new AdminModel;
     }
 
     public function handleRequest()
@@ -18,8 +19,11 @@ class AdminController
             case 'overview':
                 $this->collectShowAdminOverview();
                 break;
-            case 'editHomepage':
-                $this->collectEditHomepage();
+            case 'readHomepageItems':
+                $this->collectReadHomepageItems();
+                break;
+            case 'editHomepageItem':
+                $this->collectEditHomepageItem();
                 break;
             default:
                 $this->collectShowAdminOverview();
@@ -31,35 +35,33 @@ class AdminController
         include('./view/admin/homepage.php');
     }
 
-    public function collectEditHomepage()
+    public function collectReadHomepageItems()
     {
-        $result = $this->adminModel->readAdminHomepage();
-        $img_1 = $result[0]['img_1'];
-        $img_2 = $result[0]['img_2'];
+        $result = $this->AdminModel->readAdminHomepage();
 
+
+        include('./view/admin/readHomepageItems.php');
+    }
+
+    public function collectEditHomepageItem()
+    {
+        $item = $_GET['item'];
+
+        $result = $this->AdminModel->readAdminHomepageItem($item);
+        $img = $result[0]['img'];
         if (!isset($_POST['submit'])) {
-
-            $h1 = $result[0]['h1'];
-            $h2_1 = $result[0]['h2_1'];
-            $con_1 = $result[0]['con_1'];
-            $h2_2 = $result[0]['h2_2'];
-            $con_2 = $result[0]['con_2'];
-            include('./view/admin/editHomepage.php');
+            include('./view/admin/editHomepageItem.php');
             return;
         }
 
-        echo "<pre>" . var_dump($_REQUEST) . "</pre>";
-        $h1 = $_REQUEST['h1'];
-        $h2_1 = $_REQUEST['h2_1'];
-        $con_1 = isset($_POST['con_1']) ? $_POST['con_1'] : null;
-        $h2_2 = $_REQUEST['h2_2'];
-        $con_2 = isset($_POST['con_2']) ? $_POST['con_2'] : null;
-        $img_1 = isset($_FILES['file_1']) && $_FILES['file_1'] != '' ? $this->imageUpload($_FILES['file_1']) : $img_1;
-        $img_2 = isset($_FILES['file_2']) && $_FILES['file_2'] != '' ? $this->imageUpload($_FILES['file_2']) : $img_2;
+        $header = $_REQUEST['header'];
+        $text = isset($_POST['text']) ? $_POST['text'] : null;
+        $img = isset($_FILES['img']) && $_FILES['img']['name'] != '' ? $this->imageUpload($_FILES['img']) : $img;
 
-        $result = $this->adminModel->updateHomepage($h1, $h2_1, $img_1, $con_1, $h2_2, $img_2, $con_2);
+        $result = $this->AdminModel->updateHomepageItem($item, $header, $img, $text);
 
-        include('./view/admin/editHomepage.php');
+        unset($_POST);
+        $this->collectEditHomepageItem();
     }
 
     private function checkIfadmin()

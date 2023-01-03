@@ -27,8 +27,10 @@ class HomeModel
 
     public function showHome()
     {
-        // $sql = "SELECT cinema_name, cinema_description, cinema_accessibility FROM cinemas";
-
+        $sql = "SELECT `h1`,`header`,`img`,`text` FROM homepage JOIN homepage_area USING(homepage_id)";
+        $result = $this->DataHandler->readsData($sql);
+        $result = $result->fetchAll(PDO::FETCH_ASSOC);
+        return($result);
     }
 
     public function createCinema($name, $housenumber, $hnumber_addition, $street, $postalcode, $city, $accessibility, $description, $image){

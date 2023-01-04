@@ -45,7 +45,7 @@ class HomeController
     }
     private function collectShowHome()
     {
-        $this->HomeModel->showHome();
+        $result = $this->HomeModel->showHome();
         include('./view/home.php');
     }
     public function collectCreateCinema()

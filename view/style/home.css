@@ -2,6 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /*---Bases---*/
+:root {
+  --maintheme: #C4E538;
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  --varyDarkBlue: hsl(234, 12%, 34%);
+  --grayishBlue: hsl(229, 6%, 66%);
+  --veryLightGray: hsl(0, 0%, 98%);
+  --weight1: 200;
+  --weight2: 400;
+  --weight3: 600;
+}
 * {
   margin: 0;
   padding: 0;
@@ -650,37 +663,77 @@ transition:all .25s;
 /* end footer */
 
 /* children parents cinemas */
-.wrapper{
-  display: flex;
-  justify-content: center;
+
+.box p {
+  color: var(--grayishBlue);
+}
+.box {
+  border-radius: 5px;
+  box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+  padding: 30px;
+  margin: 20px;  
+}
+
+.row1-container img {
+  float: right;
+}
+
+@media (max-width: 450px) {
+  .box {
+      height: 200px;
+  }
+}
+
+@media (max-width: 950px) and (min-width: 450px) {
+  .box {
+      text-align: center;
+      height: 180px;
+  }
+}
+
+.cyan {
+  border-top: 3px solid var(--cyan);
+}
+.red {
+  border-top: 3px solid var(--red);
+}
+.blue {
+  border-top: 3px solid var(--blue);
+}
+.orange {
+  border-top: 3px solid var(--orange);
+}
+
+h2 {
+  color: var(--varyDarkBlue);
+  font-weight: var(--weight3);
+}
+
+
+@media (min-width: 950px) {
+  .row1-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
   
-}
-.flxcon{
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  margin: 4em 1em;
-  width:70%;
-}
-.flxcon div{
-  width: 200px; height: 200px; margin: 5px;
-  border: 10px solid yellowgreen;
-  font-size: 3em; text-align: center; color:black;
-  padding-top: 1.3em;
-  position: relative;
-}
-.flxcon p{
-  position: absolute; bottom:5px; right: 5px;
-  font-size: 18px; color:#ABC;
-}
-.flxcon div:nth-child(1){
-  flex: 1 0 calc(100% - 10px);
-}
-.flxcon div:nth-child(2){
-  flex: 1 0 auto;
-}
-.flxcon div:nth-child(3){
-  flex: 1 0 auto;
+  .row2-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .box-down {
+      position: relative;
+      top: 150px;
+  }
+  .box {
+      width: 20%;
+   
+  }
+  .header p {
+      width: 30%;
+  }
+  
 }
 
 /* login/register form */
@@ -750,7 +803,7 @@ transition:all .25s;
   font-weight: 400;
   line-height: 1;
 }
-.form-module input {
+.form-module input, select {
   outline: none;
   display: block;
   width: 100%;

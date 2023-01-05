@@ -57,7 +57,7 @@ include('./view/header_home.php');
   ?>
       <article class="stack__card">
         <figure class="span__30">
-          <img width="" src="<?= $row['img'] ?>" alt="About 1">
+          <img src="<?= $row['img'] ?>" alt="About 1">
         </figure>
         <div class="stack__card__content">
           <h2 class="stack__card__title"><?= $row['header'] ?></h2>

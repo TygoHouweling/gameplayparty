@@ -3,7 +3,12 @@
 include('./view/admin/admin_header.php');
 ?>
 
-<body >
+<body>
+    <form style="display: flex; justify-content:center; flex-direction:column" method="post" action="?cat=admin&op=editHomepageHeader" enctype="multipart/form-data">
+        <label for="h2">header</label>
+        <input type="text" value="<?= $row['header'] ?>" name="header">
+        <input type="submit" name="submit">
+    </form>
     <table class="table">
         <thead class="thead-light">
             <tr>

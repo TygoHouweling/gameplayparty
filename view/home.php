@@ -72,9 +72,9 @@ include('./view/header_home.php');
     } else {
     ?>
       <article class="stack__card">
-        <div class="stack__card__content">
-          <h2 class="stack__card__title">Bioscoop</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat ipsum tortor, vestibulum congue sapien vestibulum ac. Donec scelerisque ex in massa efficitur, vel laoreet lacus posuere. Praesent quis nulla vel libero varius elementum nec ut eros. Sed suscipit, purus pellentesque sodales molestie</p>
+      <div class="stack__card__content">
+          <h2 class="stack__card__title"><?= $row['header'] ?></h2>
+          <p><?= $row['text'] ?></p>
         </div>
         <figure class="span__30">
           <img src="<?= $row['img'] ?>" alt="About 1">

@@ -40,6 +40,9 @@ class AdminController
 
     public function collectReadHomepageItems()
     {
+        if (isset($_POST['submit'])) {
+            $row = $this->AdminModel->updateHomepageHeader($_POST['h1']);
+        }
         $result = $this->AdminModel->readAdminHomepage();
 
 

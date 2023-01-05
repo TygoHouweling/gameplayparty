@@ -42,6 +42,7 @@ class AuthController
         } else {
             $password_pattern = '/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/';
             if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) && preg_match($password_pattern, $_POST['password'])) {
+
                 $email = $_POST['email'];
                 $password = $_POST['password'];
                 $array = $this->AuthModel->collectUsers($email, $password);

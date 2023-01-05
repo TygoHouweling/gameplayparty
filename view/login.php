@@ -26,7 +26,7 @@ include('./view/header_home.php');
     <form  method="POST" action="?cat=auth&op=login">
       <input required type="text" name="email" placeholder="example@email.com"/>
       <input required type="password" name="password" placeholder="Wachtwoord"/>
-      <button>Login</button>
+      <input type="submit" name="submit" value="login">
     </form>
   </div>
   <div class="form">
@@ -54,7 +54,7 @@ include('./view/header_home.php');
       <input type='text' id='streetname' name='streetname' roleholder='Straatnaam' placeholder="Straatnaam" required>
       <input type='text' id='postal_code' name='postal_code' roleholder='Postcode' placeholder="Postcode">
       <input type='text' id='housenumber' name='housenumber' roleholder='Huisnummer' placeholder="Huisnummer" required>
-      <button>Register</button>
+      <input type="submit" name="submit" value="Registreer">
     </form>
   </div>
   <div class="cta"><a href="">Forgot your password?</a></div>

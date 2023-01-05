@@ -4,10 +4,10 @@ include('./view/admin/admin_header.php');
 ?>
 
 <body>
-    <form style="display: flex; justify-content:center; flex-direction:column" method="post" action="?cat=admin&op=editHomepageHeader" enctype="multipart/form-data">
-        <label for="h2">header</label>
-        <input type="text" value="<?= $row['header'] ?>" name="header">
-        <input type="submit" name="submit">
+    <form style="display: flex; justify-content:center; flex-direction:column" method="post" action="?cat=admin&op=readHomepageItems" enctype="multipart/form-data">
+        <label for="h1">header van pagina</label>
+        <input type="text" value="<?= $result[0]['h1'] ?>" name="h1">
+        <input style="cursor: pointer;" type="submit" name="submit" value="Update header">
     </form>
     <table class="table">
         <thead class="thead-light">

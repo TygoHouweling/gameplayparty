@@ -40,6 +40,9 @@ class AdminController
 
     public function collectReadHomepageItems()
     {
+        if (isset($_POST['submit'])) {
+            $row = $this->AdminModel->updateHomepageHeader($_POST['h1']);
+        }
         $result = $this->AdminModel->readAdminHomepage();
 
 
@@ -55,7 +58,7 @@ class AdminController
 
         $header = $_REQUEST['header'];
         $text = isset($_POST['text']) ? $_POST['text'] : null;
-        $img = isset($_FILES['img']) && $_FILES['img']['name'] != '' ? $this->imageUpload($_FILES['img']) : 'default.png';
+        $img = isset($_FILES['img']) && $_FILES['img']['name'] != '' ? $this->imageUpload($_FILES['img']) : './view/img/001.jpg';
 
         $result = $this->AdminModel->createHomepageItem($header, $img, $text);
 
@@ -75,13 +78,13 @@ class AdminController
         }
 
         $header = $_REQUEST['header'];
-        $text = isset($_POST['text']) ? $_POST['text'] : null;
+        $text = isset($_POST['text']) ? addslashes($_POST['text']) : null;
         $img = isset($_FILES['img']) && $_FILES['img']['name'] != '' ? $this->imageUpload($_FILES['img']) : $img;
 
         $result = $this->AdminModel->updateHomepageItem($item, $header, $img, $text);
 
         unset($_POST);
-        $this->collectEditHomepageItem();
+        $this->collectReadHomepageItems();
     }
 
     private function checkIfadmin()

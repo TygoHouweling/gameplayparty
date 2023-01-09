@@ -57,7 +57,7 @@ include('./view/header_home.php');
   ?>
       <article class="stack__card">
         <figure class="span__30">
-          <img width="" src="<?= $row['img'] ?>" alt="About 1">
+          <img src="<?= $row['img'] ?>" alt="About 1">
         </figure>
         <div class="stack__card__content">
           <h2 class="stack__card__title"><?= $row['header'] ?></h2>
@@ -72,12 +72,12 @@ include('./view/header_home.php');
     } else {
     ?>
       <article class="stack__card">
-        <div class="stack__card__content">
-          <h2 class="stack__card__title">Bioscoop</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat ipsum tortor, vestibulum congue sapien vestibulum ac. Donec scelerisque ex in massa efficitur, vel laoreet lacus posuere. Praesent quis nulla vel libero varius elementum nec ut eros. Sed suscipit, purus pellentesque sodales molestie</p>
+      <div class="stack__card__content">
+          <h2 class="stack__card__title"><?= $row['header'] ?></h2>
+          <p><?= $row['text'] ?></p>
         </div>
         <figure class="span__30">
-          <img src="./view/img/001.jpg" alt="About 1">
+          <img src="<?= $row['img'] ?>" alt="About 1">
         </figure>
         <div>
         </div>
@@ -91,37 +91,33 @@ include('./view/header_home.php');
   }
   ?>
 </div>
-</div>
-<div class="container1">
-  <div class="grid">
-    <div class="grid__item">
-      <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80" alt="Snowy Mountains">
-        <div class="card__content">
-          <h1 class="card__header">A starry night</h1>
-          <p class="card__text">Look up at the night sky, and find yourself <strong>immersed</strong> in the amazing mountain range of Aspen. </p>
-          <button class="card__btn">Explore <span>&rarr;</span></button>
-        </div>
-      </div>
-    </div>
-    <div class="grid__item">
-      <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80" alt="Desert">
-        <div class="card__content">
-          <h1 class="card__header">Misty mornings</h1>
-          <p class="card__text">Capture the stunning <strong>essence</strong> of the early morning sunrise in the Californian wilderness.</p>
-          <button class="card__btn">Explore <span>&rarr;</span></button>
-        </div>
-      </div>
-    </div>
-    <div class="grid__item">
-      <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1506318164473-2dfd3ede3623?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=3300&amp;q=80" alt="Canyons">
-        <div class="card__content">
-          <h1 class="card__header">Utah sunsets</h1>
-          <p class="card__text">Sunsets over the <strong>stunning</strong> Utah Canyonlands, is truly something much more than incredible.</p>
-          <button class="card__btn">Explore <span>&rarr;</span></button>
-        </div>
-      </div>
-    </div>
+
+<div class="row1-container">
+  <div class="box box-down cyan">
+    <h2>Supervisor</h2>
+    <p>Monitors activity to identify project roadblocks</p>
+    <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt="">
+  </div>
+
+  <div class="box red">
+    <h2>Team Builder</h2>
+    <p>Scans our talent network to create the optimal team for your project</p>
+    <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+  </div>
+
+  <div class="box box-down blue">
+    <h2>Calculator</h2>
+    <p>Uses data from past projects to provide better delivery estimates</p>
+    <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
   </div>
 </div>
+<div class="row2-container">
+  <div class="box orange">
+    <h2>Karma</h2>
+    <p>Regularly evaluates our talent to ensure quality</p>
+    <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="">
+  </div>
+</div>
+
 <?php
 include('./view/footer_home.php');

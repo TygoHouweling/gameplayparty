@@ -30,4 +30,10 @@ class AdminModel {
         $sql = "INSERT INTO homepage_area (`homepage_id`,`header`,`img`,`text`) VALUES (1,'$header','$img','$text')";
         $result = $this->dataHandler->createData($sql);
     }
+
+    public function updateHomepageHeader($h1) {
+        $sql = "UPDATE homepage SET `h1` = '$h1'";
+        $result = $this->dataHandler->updateData($sql);
+        return $result;
+    }
 }

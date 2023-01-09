@@ -48,6 +48,7 @@ class AuthController
                 return $this->checkUsers($email, $password, $array);
             } else {
                 $_SESSION['error'] = 'Email of wachtwoord voldoet niet aan voorwaarden.';
+
                 include('./view/login.php');
             }
         }
@@ -62,7 +63,6 @@ class AuthController
                 $_SESSION['user_lname'] = $row['user_lname'];
                 $_SESSION['user_role'] = $row['role'];
                 $_SESSION['user_id'] = $row['user_id'];
-
                 header('location:?cat=home');
             }
         }

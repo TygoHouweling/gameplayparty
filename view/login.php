@@ -22,7 +22,7 @@ include('./view/header_home.php');
     <div class="tooltip">Registreren</div>
   </div>
   <div class="form">
-    <h2>Login to your account</h2>
+    <h2>Login</h2>
     <form  method="POST" action="?cat=auth&op=login">
       <input required type="text" name="email" placeholder="example@email.com"/>
       <input required type="password" name="password" placeholder="Wachtwoord"/>
@@ -30,7 +30,7 @@ include('./view/header_home.php');
     </form>
   </div>
   <div class="form">
-    <h2>Create an account</h2>
+    <h2>Maak een account aan</h2>
     <form method='POST' action='index.php?cat=auth&op=register'>
       <input type='text' id='user_fname' name='user_fname' roleholder='Voornaam' placeholder="Voornaam" required/>
       <input type='text' id='user_lname' name='user_lname' roleholder='Achternaam' placeholder="Achternaam" required/>

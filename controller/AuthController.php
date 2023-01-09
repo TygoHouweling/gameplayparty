@@ -55,6 +55,11 @@ class AuthController
                 $_SESSION['cinema_name'] = $row['cinema_name'];
                 $_SESSION['cinema_id'] = $row['cinema_id'];
                 header('location:?cat=home');
+                $_SESSION['user_fname'] = $row['user_fname'];
+                $_SESSION['user_lname'] = $row['user_lname'];
+                $_SESSION['user_role'] = $row['role'];
+                $_SESSION['user_id'] = $row['user_id'];
+                header('location:?cat=admin');
             }
         }
         if (!isset($_SESSION['loggedIn'])) {
@@ -101,5 +106,5 @@ class AuthController
                 header('location:?cat=auth&op=login');
             }
         }
-        
+
     }

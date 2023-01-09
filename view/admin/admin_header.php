@@ -47,24 +47,6 @@
                 </li>
 
                 <div class="small-screen navbar-display">
-                    <li class="dropdown d-lg-none d-md-block d-xl-none d-sm-block">
-                        <a href="#homeSubmenu0" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <i class="material-icons">notifications</i><span> 4 notification</span></a>
-                        <ul class="collapse list-unstyled menu" id="homeSubmenu0">
-                            <li>
-                                <a href="#">You have 5 new messages</a>
-                            </li>
-                            <li>
-                                <a href="#">You're now friend with Mike</a>
-                            </li>
-                            <li>
-                                <a href="#">Wish Mary on her birthday!</a>
-                            </li>
-                            <li>
-                                <a href="#">5 warnings in Server Console</a>
-                            </li>
-                        </ul>
-                    </li>
 
                     <li class="d-lg-none d-md-block d-xl-none d-sm-block">
                         <a href="?cat=admin"><i class="material-icons">apps</i><span>apps</span></a>
@@ -73,14 +55,14 @@
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=readHomepageItems&page=1"><i class="material-icons">edit</i> Wijzig start pagina</a>
+                            <a href="?cat=admin&op=readHomepageItems&page=1"><i class="material-icons">visibility</i> Overzicht home</a>
                         </li>
                     <?php
                     }
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=readDisclaimerItems&page=2"><i class="material-icons">edit</i> Wijzig disclaimer pagina</a>
+                            <a href="?cat=admin&op=readDisclaimerItems&page=2"><i class="material-icons">visibility</i> Overzicht disclaimer</a>
                         </li>
                     <?php
                     }
@@ -96,25 +78,15 @@
                     }
                     ?>
                     <?php
-                    if ($_SESSION['user_role'] == 2) {
-                    ?>
-                        <li class="active">
-                            <a href="?cat=home&op=createCinema" class="dashboard"><i class="material-icons">add</i><span>Voeg bioscoop toe</span></a>
-                        </li>
-                    <?php
-                    }
-                    ?>
-                    <?php
 
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=overviewCinema"><i class="material-icons">edit</i>Overzicht bioscopen</a>
+                            <a href="?cat=admin&op=checkCinema"><i class="material-icons">check</i> Keur bioscopen goed</a>
                         </li>
                     <?php
                     }
                     ?>
-
 
             </ul>
 
@@ -140,46 +112,6 @@
                             <span class="material-icons">more_vert</span>
                         </button>
 
-                        <div class="collapse navbar-collapse d-lg-block d-xl-block d-sm-none d-md-none d-none" id="navbarSupportedContent">
-                            <ul class="nav navbar-nav ml-auto">
-                                <li class="dropdown nav-item active">
-                                    <a href="#" class="nav-link" data-toggle="dropdown">
-                                        <span class="material-icons">notifications</span>
-                                        <span class="notification">4</span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#">You have 5 new messages</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">You're now friend with Mike</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Wish Mary on her birthday!</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">5 warnings in Server Console</a>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <span class="material-icons">apps</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">
-                                        <span class="material-icons">person</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <span class="material-icons">settings</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </nav>
             </div>

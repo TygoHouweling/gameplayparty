@@ -50,21 +50,54 @@ class AdminModel
         return $result;
     }
 
-    public function checkCinemas(){
+    public function checkCinemas()
+    {
         $sql = "SELECT cinema_id, cinema_name FROM cinemas WHERE activated=0";
         $result = $this->dataHandler->readsData($sql);
         $result = $result->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
-    public function acceptCinema($cinema_id) {
+    public function acceptCinema($cinema_id)
+    {
         $sql = "UPDATE cinemas SET `activated` = 1 WHERE cinema_id=$cinema_id";
         $result = $this->dataHandler->updateData($sql);
         return $result;
     }
-    public function denyCinema($cinema_id) {
+    public function denyCinema($cinema_id)
+    {
         $sql = "DELETE FROM cinemas WHERE cinema_id=$cinema_id";
         $result = $this->dataHandler->deleteData($sql);
         return $result;
+    }
+
+    public function readCinema()
+    {
+        $session = $_SESSION['cinema_id'];
+        $sql = "SELECT * FROM cinemas WHERE cinema_id=$session";
+        $result = $this->dataHandler->readsData($sql);
+        $result = $result->fetchAll(PDO::FETCH_ASSOC);
+        return ($result);
+    }
+
+    public function editCinema($cinema_name, $cinema_email, $cinema_housenumber, $cinema_housenumber_addition, $cinema_street, $cinema_postalcode, $cinema_city, $cinema_description, $cinema_password, $cinema_image,$cinema_accessibility)
+    {
+        $session = $_SESSION['cinema_id'];
+        $sql = "UPDATE cinemas SET
+        `cinema_name` = '$cinema_name',
+        `cinema_email` = '$cinema_email',
+        `cinema_housenumber` = '$cinema_housenumber',
+        `cinema_housenumber_addition` = '$cinema_housenumber_addition',
+        `cinema_street` = '$cinema_street',
+        `cinema_postalcode` = '$cinema_postalcode',
+        `cinema_housenumber_addition` = '$cinema_housenumber_addition',
+        `cinema_city` = '$cinema_city',
+        `cinema_description` = '$cinema_description',
+        `cinema_password` = '$cinema_password',
+        `cinema_accessibility` = '$cinema_accessibility',
+        `cinema_image` = '$cinema_image'
+        WHERE cinema_id=$session";
+        $result = $this->dataHandler->updateData($sql);
+        return($result);
     }
 }

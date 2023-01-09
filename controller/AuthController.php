@@ -84,6 +84,8 @@ class AuthController
             // if (($_SESSION['user_role'] == 1) xor ($_SESSION['user_role'] == 2)) {
 
                 $name = isset($_POST['cinema_name']) ? $_POST['cinema_name'] : null;
+                $email = isset($_POST['cinema_email']) ? $_POST['cinema_email'] : null;
+                $password = isset($_POST['cinema_password']) ? $_POST['cinema_password'] : null;
                 $housenumber = isset($_POST['cinema_housenumber']) ? $_POST['cinema_housenumber'] : null;
                 $hnumber_addition = isset($_POST['cinema_housenumber_addition']) ? $_POST['cinema_housenumber_addition'] : null;
                 $street = isset($_POST['cinema_street']) ? $_POST['cinema_street'] : null;
@@ -93,12 +95,11 @@ class AuthController
                 $description = isset($_POST['cinema_description']) ? $_POST['cinema_discription'] : null;
                 $image = isset($_POST['cinema_image']) ? $_POST['cinema_image'] : null;
 
-                $register = $this->AdminModel->createCinema($name, $housenumber, $hnumber_addition, $street, $postalcode, $city, $accessibility, $description, $image);
-                header('location:?cat=home');
+                $register = $this->AuthModel->createCinema($name, $email, $password, $housenumber, $hnumber_addition, $street, $postalcode, $city, $accessibility, $description, $image);
+                header('location:?cat=auth&op=login');
             } else {
-                header('location:?cat=home');
+                header('location:?cat=auth&op=login');
             }
-            include './view/createCinema.php';
         }
         
     }

@@ -33,17 +33,4 @@ class HomeModel
     return ($result);
   }
 
-  public function createCinema($name, $housenumber, $hnumber_addition, $street, $postalcode, $city, $accessibility, $description, $image)
-  {
-
-    try {
-
-      $sql = "INSERT INTO `cinemas`(`cinema_id`, `cinema_name`, `cinema_housenumber`, `cinema_housenumber_addition`, `cinema_street`, `cinema_postalcode`, `cinema_city`, `cinema_accessibility`, `cinema_description`, `cinema_image`) VALUES (null,'{$name}','{$housenumber}','{$hnumber_addition}','{$street}','{$postalcode}','{$city}','{$accessibility}','{$description}','{$image}')";
-      $results = $this->DataHandler->createData($sql);
-
-      return $results;
-    } catch (Exception $e) {
-      throw $e;
-    }
-  }
 }

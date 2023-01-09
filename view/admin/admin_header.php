@@ -87,6 +87,9 @@
                     <?php
                     }
                     ?>
+                    <li>
+                        <a href="?cat=admin&op=editCinemaPage"><i class="material-icons">edit</i> Wijzig bioscoop</a>
+                    </li>
 
             </ul>
 

@@ -82,37 +82,34 @@ class AuthController
         include './view/home.php';
     }
 
-    
+
     public function collectCreateCinema()
     {
         if (isset($_POST['submit'])) {
             // if (($_SESSION['user_role'] == 1) xor ($_SESSION['user_role'] == 2)) {
 
-                $name = isset($_POST['cinema_name']) ? $_POST['cinema_name'] : null;
-                $email = isset($_POST['cinema_email']) ? $_POST['cinema_email'] : null;
-                $password = isset($_POST['cinema_password']) ? $_POST['cinema_password'] : null;
-                $housenumber = isset($_POST['cinema_housenumber']) ? $_POST['cinema_housenumber'] : null;
-                $hnumber_addition = isset($_POST['cinema_housenumber_addition']) ? $_POST['cinema_housenumber_addition'] : null;
-                $street = isset($_POST['cinema_street']) ? $_POST['cinema_street'] : null;
-                $postalcode = isset($_POST['cinema_postalcode']) ? $_POST['cinema_postalcode'] : null;
-                $city = isset($_POST['cinema_city']) ? $_POST['cinema_city'] : null;
-                $accessibility = isset($_POST['cinema_accessibility']) ? $_POST['cinema_accessibility'] : null;
-                $description = isset($_POST['cinema_description']) ? $_POST['cinema_discription'] : null;
-                $image = isset($_POST['cinema_image']) ? $_POST['cinema_image'] : null;
+            $name = isset($_POST['cinema_name']) ? $_POST['cinema_name'] : null;
+            $email = isset($_POST['cinema_email']) ? $_POST['cinema_email'] : null;
+            $password = isset($_POST['cinema_password']) ? $_POST['cinema_password'] : null;
+            $housenumber = isset($_POST['cinema_housenumber']) ? $_POST['cinema_housenumber'] : null;
+            $hnumber_addition = isset($_POST['cinema_housenumber_addition']) ? $_POST['cinema_housenumber_addition'] : null;
+            $street = isset($_POST['cinema_street']) ? $_POST['cinema_street'] : null;
+            $postalcode = isset($_POST['cinema_postalcode']) ? $_POST['cinema_postalcode'] : null;
+            $city = isset($_POST['cinema_city']) ? $_POST['cinema_city'] : null;
+            $accessibility = isset($_POST['cinema_accessibility']) ? $_POST['cinema_accessibility'] : null;
+            $description = isset($_POST['cinema_description']) ? $_POST['cinema_discription'] : null;
+            $image = isset($_POST['cinema_image']) ? $_POST['cinema_image'] : null;
 
-                $register = $this->AuthModel->createCinema($name, $email, $password, $housenumber, $hnumber_addition, $street, $postalcode, $city, $accessibility, $description, $image);
-                header('location:?cat=auth&op=login');
-                include('./view/register.php');
-
-            } else {
-                header('location:?cat=auth&op=login');
-            }
+            $register = $this->AuthModel->createCinema($name, $email, $password, $housenumber, $hnumber_addition, $street, $postalcode, $city, $accessibility, $description, $image);
+            header('location:?cat=auth&op=login');
+            include('./view/register.php');
         } else {
             include './view/register.php';
         }
     }
 
-    public function collectAccountRequest() {
+    public function collectAccountRequest()
+    {
         $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
         // var_dump($id);
         $array = $this->AuthModel->readAccount($id);
@@ -121,7 +118,8 @@ class AuthController
         include 'view/readAccount.php';
     }
 
-    public function collectUpdateAccountRequest(){
+    public function collectUpdateAccountRequest()
+    {
 
         $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
         $firstname = isset($_REQUEST['user_fname']) ? $_REQUEST['user_fname'] : null;
@@ -136,13 +134,14 @@ class AuthController
         $postalcode = isset($_REQUEST['postal_code']) ? $_REQUEST['postal_code'] : null;
         $role = isset($_REQUEST['role']) ? $_REQUEST['role'] : null;
 
-        if(isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
 
-        $array = $this->AuthModel->updateUser($id, $firstname, $lastname, $email, $password, $province, $city, $street, $housenumber, $hnumber_addition, $postalcode, $role);
-
+            $array = $this->AuthModel->updateUser($id, $firstname, $lastname, $email, $password, $province, $city, $street, $housenumber, $hnumber_addition, $postalcode, $role);
         }
+    }
 
-    public function collectDeleteUserRequest() {
+    public function collectDeleteUserRequest()
+    {
         $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
         $result = $this->AuthModel->deleteUser($id);
         unset($_SESSION['loggedIn']);
@@ -152,5 +151,4 @@ class AuthController
         unset($_SESSION['user_id']);
         header('location:?cat=home');
     }
-
 }

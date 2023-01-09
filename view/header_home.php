@@ -17,7 +17,7 @@
 
 <body>
     <nav class="navbar">
-        <a href="#" class="logo"><img src="./view/img/gpp.svg"></img></a>
+        <a href="?cat=home" class="logo"><img src="./view/img/gpp.svg"></img></a>
         <div class="nav-links">
             <ul class="nav-menu">
                 <li <?= !isset($_GET['op']) ? 'class=active' : '' ?>><a href="?cat=home&page=1">Home</a></li>

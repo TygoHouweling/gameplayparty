@@ -79,18 +79,15 @@ class AuthController
 
     public function collectLogoutRequest()
     {
-        if (isset($_GET['logoutConfirm'])) {
+        unset($_SESSION['loggedIn']);
+        unset($_SESSION['user_fname']);
+        unset($_SESSION['user_lname']);
+        unset($_SESSION['user_role']);
+        unset($_SESSION['user_id']);
+        header('location:?cat=home');
 
-            unset($_SESSION['loggedIn']);
-            unset($_SESSION['user_fname']);
-            unset($_SESSION['user_lname']);
-            unset($_SESSION['user_role']);
-            unset($_SESSION['user_id']);
-            header('location:?cat=home');
-        }
-
-        //include('./view/logoutConfirm.php');
         //logout popup
+        include './view/home.php';
     }
 
     public function collectRegisterRequest()
@@ -113,7 +110,6 @@ class AuthController
                 $register = $this->AuthModel->createUser($fname, $lname, $province, $password, $email, $city, $postalcode, $street, $housenumber, $hnumber_addition);
                 header('location:?cat=auth&op=login');
                 include('./view/register.php');
-
             } else {
                 $_SESSION['error'] = 'Email of wachtwoord voldoet niet aan voorwaarden.';
                 include('./view/register.php');
@@ -123,7 +119,8 @@ class AuthController
         }
     }
 
-    public function collectAccountRequest() {
+    public function collectAccountRequest()
+    {
         $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
         // var_dump($id);
         $array = $this->AuthModel->readAccount($id);
@@ -132,7 +129,8 @@ class AuthController
         include 'view/readAccount.php';
     }
 
-    public function collectUpdateAccountRequest(){
+    public function collectUpdateAccountRequest()
+    {
 
         $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
         $firstname = isset($_REQUEST['user_fname']) ? $_REQUEST['user_fname'] : null;
@@ -147,17 +145,17 @@ class AuthController
         $postalcode = isset($_REQUEST['postal_code']) ? $_REQUEST['postal_code'] : null;
         $role = isset($_REQUEST['role']) ? $_REQUEST['role'] : null;
 
-        if(isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
 
-        $array = $this->AuthModel->updateUser($id, $firstname, $lastname, $email, $password, $province, $city, $street, $housenumber, $hnumber_addition, $postalcode, $role);
-
+            $array = $this->AuthModel->updateUser($id, $firstname, $lastname, $email, $password, $province, $city, $street, $housenumber, $hnumber_addition, $postalcode, $role);
         }
         $array = $this->AuthModel->readAccount($id);
         $result = $array->fetchAll(PDO::FETCH_ASSOC);
         include('view/updateAccount.php');
     }
 
-    public function collectDeleteUserRequest() {
+    public function collectDeleteUserRequest()
+    {
         $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
         $result = $this->AuthModel->deleteUser($id);
         unset($_SESSION['loggedIn']);
@@ -167,5 +165,4 @@ class AuthController
         unset($_SESSION['user_id']);
         header('location:?cat=home');
     }
-
 }

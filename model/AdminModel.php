@@ -1,38 +1,44 @@
 <?php
 require_once('./model/DataHandler.php');
-class AdminModel {
+class AdminModel
+{
     private $dataHandler;
     public function __construct()
     {
         $this->dataHandler = new DataHandler;
     }
 
-    public function readAdminHomepage() {
-        $sql = "SELECT `area_id`,`h1`,`img`,`text`,`header` FROM homepage LEFT JOIN homepage_area USING(homepage_id)";
+    public function readAdminPage($page)
+    {
+        $sql = "SELECT `area_id`,`h1`,`img`,`text`,`header` FROM pages LEFT JOIN areas USING(page_id) WHERE page_id=$page";
         $result = $this->dataHandler->readsData($sql);
         $result = $result->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
-    public function readAdminHomepageItem($item) {
-        $sql = "SELECT `area_id`,`h1`,`img`,`text`,`header` FROM homepage LEFT JOIN homepage_area USING(homepage_id) WHERE area_id=$item";
+    public function readAdminPageItem($item,$page)
+    {
+        $sql = "SELECT `area_id`,`h1`,`img`,`text`,`header` FROM pages LEFT JOIN areas USING(page_id) WHERE area_id=$item AND page_id=$page";
         $result = $this->dataHandler->readsData($sql);
         $result = $result->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
-    public function updateHomepageItem($item, $header, $img, $text) {
-        $sql = "UPDATE homepage_area SET `header` = '$header', `img` = '$img', `text` = '$text' WHERE area_id = $item";
+    public function updateHomepageItem($item, $header, $img, $text,$page)
+    {
+        $sql = "UPDATE areas SET `header` = '$header', `img` = '$img', `text` = '$text' WHERE area_id = $item AND page_id=$page";
         $result = $this->dataHandler->updateData($sql);
     }
 
-    public function createHomepageItem($header, $img, $text) {
-        $sql = "INSERT INTO homepage_area (`homepage_id`,`header`,`img`,`text`) VALUES (1,'$header','$img','$text')";
+    public function createItem($header, $img, $text, $page)
+    {
+        $sql = "INSERT INTO areas (`page_id`,`header`,`img`,`text`) VALUES ('$page','$header','$img','$text')";
         $result = $this->dataHandler->createData($sql);
     }
 
-    public function updateHomepageHeader($h1) {
-        $sql = "UPDATE homepage SET `h1` = '$h1'";
+    public function updateHeader($h1, $page)
+    {
+        $sql = "UPDATE pages SET `h1` = '$h1' WHERE page_id = $page";
         $result = $this->dataHandler->updateData($sql);
         return $result;
     }

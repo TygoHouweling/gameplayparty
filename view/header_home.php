@@ -19,7 +19,8 @@
         <a href="#" class="logo"><img src="./view/img/gpp.svg"></img></a>
         <div class="nav-links">
             <ul class="nav-menu">
-                <li <?= !isset($_GET['op']) ? 'class=active' : '' ?>><a href="?cat=home">Home</a></li>
+                <li <?= !isset($_GET['op']) ? 'class=active' : '' ?>><a href="?cat=home&page=1">Home</a></li>
+                <li <?= isset($_GET['op']) && ($_GET['op']== 'disclaimers') ? 'class=active' : '' ?>><a href="?cat=home&op=disclaimers&page=2">Disclaimers</a></li>
                 <li <?= isset($_GET['op']) && ($_GET['op'] == 'cinemasOverview' || $_GET['op'] == 'cinema') ? 'class=active' : '' ?>><a href="?cat=home&op=cinemasOverview">Bioscopen</a></li>
                 <?php
                 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] >= 1) {

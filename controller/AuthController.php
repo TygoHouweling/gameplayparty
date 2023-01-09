@@ -72,7 +72,9 @@ class AuthController
             unset($_SESSION['cinema_id']);
             header('location:?cat=home');
         }
-        include('./view/logoutConfirm.php');
+
+        //include('./view/logoutConfirm.php');
+        //logout popup
     }
 
     

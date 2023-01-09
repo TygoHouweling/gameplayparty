@@ -15,8 +15,10 @@ class HomeController
 
         switch ($op) {
             case 'home':
-
                 $this->collectShowHome();
+                break;
+            case 'disclaimer':
+                $this->collectShowDisclaimers();
                 break;
             case 'cinemasOverview':
                 $this->collectShowCinemas();
@@ -42,7 +44,12 @@ class HomeController
     }
     private function collectShowHome()
     {
-        $result = $this->HomeModel->showHome();
-        include('./view/home.php');
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $result = $this->HomeModel->showPage($page);
+        if ($page == 1) {
+            include('./view/home.php');
+        } elseif ($page == 2) {
+            include('./view/disclaimers.php');
+        }
     }
 }

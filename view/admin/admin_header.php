@@ -73,7 +73,14 @@
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=readHomepageItems"><i class="material-icons">edit</i> Wijzig start pagina</a>
+                            <a href="?cat=admin&op=readHomepageItems&page=1"><i class="material-icons">edit</i> Wijzig start pagina</a>
+                        </li>
+                    <?php
+                    }
+                    if ($_SESSION['user_role'] == 2) {
+                    ?>
+                        <li>
+                            <a href="?cat=admin&op=readDisclaimerItems&page=2"><i class="material-icons">edit</i> Wijzig disclaimer pagina</a>
                         </li>
                     <?php
                     }

@@ -56,7 +56,7 @@ include('./view/header_home.php');
     if (!isset($even) || $even == false) {
   ?>
       <article class="stack__card">
-        <figure class="span__30">
+        <figure class="span__20">
           <img src="<?= $row['img'] ?>" alt="About 1">
         </figure>
         <div class="stack__card__content">
@@ -76,7 +76,7 @@ include('./view/header_home.php');
           <h2 class="stack__card__title"><?= $row['header'] ?></h2>
           <p><?= $row['text'] ?></p>
         </div>
-        <figure class="span__30">
+        <figure class="span__20">
           <img src="<?= $row['img'] ?>" alt="About 1">
         </figure>
         <div>

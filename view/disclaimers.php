@@ -2,7 +2,8 @@
 include('./view/header_home.php');
 ?>
 
-<div>
+<!-- container to fix the position -->
+<div style="margin-top:200px">
 <h1 class="Header-text"> <?= $result[0]['h1'] ?></h1>
 <!-- this container holds the articles and centers them -->
 <div class="card-container ">

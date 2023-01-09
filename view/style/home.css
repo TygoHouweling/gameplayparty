@@ -160,6 +160,7 @@ a {
 
 .stack__card figure img {
   width: 100%;
+  height:auto;
 
   /* Fit image within parent container  */
 
@@ -243,6 +244,10 @@ a {
   }
 
   /* Set width for large screens */
+  .span__20 {
+    min-width: 20%;
+    max-width: 50%;
+  }
 
   .span__30 {
     min-width: 30%;

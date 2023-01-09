@@ -78,8 +78,8 @@ class AuthController
             header('location:?cat=home');
         }
 
-        //include('./view/logoutConfirm.php');
         //logout popup
+        include './view/home.php';
     }
 
     
@@ -102,9 +102,55 @@ class AuthController
 
                 $register = $this->AuthModel->createCinema($name, $email, $password, $housenumber, $hnumber_addition, $street, $postalcode, $city, $accessibility, $description, $image);
                 header('location:?cat=auth&op=login');
+                include('./view/register.php');
+
             } else {
                 header('location:?cat=auth&op=login');
             }
+        } else {
+            include './view/register.php';
+        }
+    }
+
+    public function collectAccountRequest() {
+        $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
+        // var_dump($id);
+        $array = $this->AuthModel->readAccount($id);
+        $result = $array->fetchAll(PDO::FETCH_ASSOC);
+
+        include 'view/readAccount.php';
+    }
+
+    public function collectUpdateAccountRequest(){
+
+        $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
+        $firstname = isset($_REQUEST['user_fname']) ? $_REQUEST['user_fname'] : null;
+        $lastname = isset($_REQUEST['user_lname']) ? $_REQUEST['user_lname'] : null;
+        $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
+        $password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
+        $province = isset($_REQUEST['user_province']) ? $_REQUEST['user_province'] : null;
+        $city = isset($_REQUEST['city']) ? $_REQUEST['city'] : null;
+        $street = isset($_REQUEST['streetname']) ? $_REQUEST['streetname'] : null;
+        $housenumber = isset($_REQUEST['housenumber']) ? $_REQUEST['housenumber'] : null;
+        $hnumber_addition = isset($_REQUEST['housenumber_addition']) ? $_REQUEST['housenumber_addition'] : null;
+        $postalcode = isset($_REQUEST['postal_code']) ? $_REQUEST['postal_code'] : null;
+        $role = isset($_REQUEST['role']) ? $_REQUEST['role'] : null;
+
+        if(isset($_POST['submit'])){
+
+        $array = $this->AuthModel->updateUser($id, $firstname, $lastname, $email, $password, $province, $city, $street, $housenumber, $hnumber_addition, $postalcode, $role);
+
         }
 
+    public function collectDeleteUserRequest() {
+        $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
+        $result = $this->AuthModel->deleteUser($id);
+        unset($_SESSION['loggedIn']);
+        unset($_SESSION['user_fname']);
+        unset($_SESSION['user_lname']);
+        unset($_SESSION['user_role']);
+        unset($_SESSION['user_id']);
+        header('location:?cat=home');
     }
+
+}

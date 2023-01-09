@@ -112,6 +112,15 @@
                             <span class="material-icons">more_vert</span>
                         </button>
 
+                        <div class="collapse navbar-collapse d-lg-block d-xl-block d-sm-none d-md-none d-none" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav ml-auto">
+                                <li class="dropdown nav-item active">
+                                    <a href="?cat=auth&op=logout" class="nav-link" data-toggle="dropdown">
+                                        <span class="material-icons">logout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </div>

@@ -16,7 +16,7 @@ class AdminModel
         return $result;
     }
 
-    public function readAdminPageItem($item,$page)
+    public function readAdminPageItem($item, $page)
     {
         $sql = "SELECT `area_id`,`h1`,`img`,`text`,`header` FROM pages LEFT JOIN areas USING(page_id) WHERE area_id=$item AND page_id=$page";
         $result = $this->dataHandler->readsData($sql);
@@ -24,7 +24,7 @@ class AdminModel
         return $result;
     }
 
-    public function updateHomepageItem($item, $header, $img, $text,$page)
+    public function updateHomepageItem($item, $header, $img, $text, $page)
     {
         $sql = "UPDATE areas SET `header` = '$header', `img` = '$img', `text` = '$text' WHERE area_id = $item AND page_id=$page";
         $result = $this->dataHandler->updateData($sql);
@@ -40,6 +40,13 @@ class AdminModel
     {
         $sql = "UPDATE pages SET `h1` = '$h1' WHERE page_id = $page";
         $result = $this->dataHandler->updateData($sql);
+        return $result;
+    }
+
+    public function deleteItem($item)
+    {
+        $sql = "DELETE FROM areas WHERE area_id=$item";
+        $result = $this->dataHandler->deleteData($sql);
         return $result;
     }
 }

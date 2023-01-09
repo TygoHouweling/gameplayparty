@@ -20,6 +20,9 @@ class AdminController
                 $this->collectShowAdminOverview();
                 break;
 
+            case 'deleteItem':
+                $this->collectDeleteItem();
+                break;
             case 'readDisclaimerItems':
                 $this->collectReadDisclaimerItems();
                 break;
@@ -37,6 +40,16 @@ class AdminController
                 break;
             default:
                 $this->collectShowAdminOverview();
+        }
+    }
+
+    public function collectDeleteItem(){
+        $result = $this->AdminModel->deleteItem($_GET['item']);
+
+        if ($_GET['page'] == 1) {
+            $this->collectReadHomepageItems();
+        } elseif ($_GET['page'] == 2) {
+            $this->collectReadDisclaimerItems();
         }
     }
 
@@ -82,9 +95,8 @@ class AdminController
         unset($_POST);
         if ($_GET['page'] == 1) {
             $this->collectReadHomepageItems();
-        } elseif($_GET['page']==2){
+        } elseif ($_GET['page'] == 2) {
             $this->collectReadDisclaimerItems();
-
         }
     }
 
@@ -92,7 +104,7 @@ class AdminController
     {
         $item = $_GET['item'];
 
-        $result = $this->AdminModel->readAdminPageItem($item,$_GET['page']);
+        $result = $this->AdminModel->readAdminPageItem($item, $_GET['page']);
         $img = $result[0]['img'];
         if (!isset($_POST['submit'])) {
             include('./view/admin/editItem.php');
@@ -106,12 +118,11 @@ class AdminController
         $result = $this->AdminModel->updateHomepageItem($item, $header, $img, $text, $_GET['page']);
 
         unset($_POST);
-        
+
         if ($_GET['page'] == 1) {
             $this->collectReadHomepageItems();
-        } elseif($_GET['page']==2){
+        } elseif ($_GET['page'] == 2) {
             $this->collectReadDisclaimerItems();
-
         }
     }
 

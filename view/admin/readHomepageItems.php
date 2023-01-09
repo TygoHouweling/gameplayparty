@@ -15,7 +15,6 @@ include('./view/admin/admin_header.php');
                 <th scope="col">id</th>
                 <th scope="col">header</th>
                 <th scope="col">text</th>
-                <th scope="col">edit</th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +25,8 @@ include('./view/admin/admin_header.php');
                     <th scope="row"><?= $row['area_id'] ?></th>
                     <td><?= $row['header'] ?></td>
                     <td><?= $row['text'] ?></td>
-                    <td><a href="?cat=admin&op=editItem&item=<?= $row['area_id'] ?>&page=1">edit</a></td>
+                    <td><a href="?cat=admin&op=editItem&page=1&item=<?= $row['area_id'] ?>"><i class="material-icons"> edit </i></a></td>
+                    <td><a href="?cat=admin&op=deleteItem&page=1&item=<?= $row['area_id'] ?>"><i class="material-icons"> delete </i></a></td>
                 </tr>
             <?php
             }

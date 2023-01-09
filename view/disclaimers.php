@@ -49,7 +49,7 @@ include('./view/header_home.php');
     <?php
     }
     ?>
-</div>
+</div>02
 </div>
 
 

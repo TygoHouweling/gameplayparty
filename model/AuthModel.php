@@ -50,4 +50,14 @@ public function updateUser($id, $firstname, $lastname, $email, $password, $provi
   return $results;
   }
 
+  public function deleteUser($id) {
+    try{
+        $sql ="DELETE FROM `users` WHERE user_id = '{$id}'";
+        $result = $this->DataHandler->deleteData($sql);
+        return $result;
+      } catch (Exception $e){
+          throw $e;
+      }
+}
+
 }

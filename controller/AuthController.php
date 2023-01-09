@@ -29,6 +29,10 @@ class AuthController
                 $this->collectUpdateAccountRequest();
                 break;
 
+            case 'deleteUser':
+                $this->collectDeleteUserRequest();
+                break;
+
             case 'logout':
                 $this->collectLogoutRequest();
                 break;
@@ -151,6 +155,17 @@ class AuthController
         $array = $this->AuthModel->readAccount($id);
         $result = $array->fetchAll(PDO::FETCH_ASSOC);
         include('view/updateAccount.php');
+    }
+
+    public function collectDeleteUserRequest() {
+        $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
+        $result = $this->AuthModel->deleteUser($id);
+        unset($_SESSION['loggedIn']);
+        unset($_SESSION['user_fname']);
+        unset($_SESSION['user_lname']);
+        unset($_SESSION['user_role']);
+        unset($_SESSION['user_id']);
+        header('location:?cat=home');
     }
 
 }

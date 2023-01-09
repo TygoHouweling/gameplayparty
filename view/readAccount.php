@@ -18,9 +18,8 @@ foreach ($result as $value) {
 <p>Huisnummer <?=$value['housenumber']?></p>
 <p>Huisnummer toevoeging: <?=$value['housenumber_addition']?></p><br>
 <li <?= isset($_GET['op']) && $_GET['op'] == 'update' ? 'class=active' : '' ?>><a href="?cat=auth&op=updateAccount&user_id=">Account gegevens wijzigen</a></li>
-<li <?= isset($_GET['op']) && $_GET['op'] == 'delete' ? 'class=active' : '' ?>><a href="?cat=auth&op=deleteAccount&user_id=">Account verwijderen</a></li>
+<li <?= isset($_GET['op']) && $_GET['op'] == 'delete' ? 'class=active' : '' ?>><a href="?cat=auth&op=deleteUser&user_id=<?=$value["user_id"] ?>"> Account verwijderen</a></li>
 </div>
-
 <?php
 }
 

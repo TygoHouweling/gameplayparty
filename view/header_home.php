@@ -10,6 +10,7 @@
     <script src="https://use.fontawesome.com/dca7965d17.js"></script>
     <script src="./view/js/main.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="icon" href="./view/img/gpp.svg">
 </head>
@@ -45,5 +46,8 @@
                 ?>
             </ul>
         </div>
-        <iconify-icon icon="bx:grid-alt" class="menu-hamburger"></iconify-icon>
+        <!-- <iconify-icon icon="bx:grid-alt" class="menu-hamburger"></iconify-icon> -->
+        <span class="material-symbols-outlined menu-hamburger">
+menu
+</span>
     </nav>

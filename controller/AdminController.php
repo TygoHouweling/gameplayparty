@@ -40,6 +40,9 @@ class AdminController
             case 'checkCinema':
                 $this->collectCheckCinema();
                 break;
+            case 'editCinemaPage':
+                $this->collectEditCinema();
+                break;
             default:
                 $this->collectShowAdminOverview();
         }
@@ -172,5 +175,33 @@ class AdminController
 
         unset($_GET['action']);
         $this->collectCheckCinema();
+    }
+
+    private function collectEditCinema()
+    {
+        $result = $this->AdminModel->readCinema();
+        if (!isset($_POST['submit'])) {
+            include('./view/admin/editCinema.php');
+            return;
+        }
+        $cinema_name = $_POST['cinema_name'];
+        $cinema_housenumber = $_POST['cinema_housenumber'];
+        $cinema_housenumber_addition = $_POST['cinema_housenumber_addition'];
+        $cinema_street = $_POST['cinema_street'];
+        $cinema_postalcode = $_POST['cinema_postalcode'];
+        $cinema_city = $_POST['cinema_city'];
+        $cinema_accessibility = $_POST['cinema_accessibility'];
+        $cinema_description = $_POST['cinema_description'];
+        $cinema_password = isset($_POST['cinema_password']) && password_hash($_POST['cinema_password'], PASSWORD_BCRYPT) != '' ? $_POST['cinema_password'] : $result[0]['cinema_password'];
+        if (filter_var($_POST['cinema_email'], FILTER_VALIDATE_EMAIL)) {
+            $cinema_email = $_POST['cinema_email'];
+            $cinema_password = isset($_POST['cinema_password']) && password_hash($_POST['cinema_password'], PASSWORD_BCRYPT) != '' ? $_POST['cinema_password'] : $result[0]['cinema_password'];
+        }
+        $cinema_image = isset($_FILES['img']) && $_FILES['img']['name'] != '' ? $this->imageUpload($_FILES['img']) : $result[0]['cinema_image'];
+
+        $result = $this->AdminModel->editCinema($cinema_name, $cinema_email, $cinema_housenumber, $cinema_housenumber_addition, $cinema_street, $cinema_postalcode, $cinema_city, $cinema_description, $cinema_password, $cinema_image, $cinema_accessibility);
+
+        unset($_POST);
+        $this->collectEditCinema();
     }
 }

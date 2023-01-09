@@ -24,13 +24,6 @@
                 <li <?= isset($_GET['op']) && ($_GET['op']== 'disclaimers') ? 'class=active' : '' ?>><a href="?cat=home&op=disclaimers&page=2">Disclaimers</a></li>
                 <li <?= isset($_GET['op']) && ($_GET['op'] == 'cinemasOverview' || $_GET['op'] == 'cinema') ? 'class=active' : '' ?>><a href="?cat=home&op=cinemasOverview">Bioscopen</a></li>
                 <?php
-                if (isset($_SESSION['user_role']) && $_SESSION['user_role'] >= 1) {
-                ?>
-                    <li><a href="?cat=admin">Admin Paneel</a></li>
-                <?php
-                }
-                ?>
-                <?php
                 if (isset($_SESSION['loggedIn'])) {
                 ?>
                     <li <?= isset($_GET['op']) && $_GET['op'] == 'account' ? 'class=active' : '' ?>><a href="?cat=auth&op=account">Uw Account</a></li>

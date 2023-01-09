@@ -15,7 +15,7 @@ class Config
             $this->servername = "127.0.0.1";
             $this->username = "root";
             $this->password = "";
-            $this->dbname = "gameplayparty_3";
+            $this->dbname = "gameplayparty_5";
         } elseif(gethostbyaddr($_SERVER['REMOTE_ADDR']) == 'LAPTOP-68PK3NBF') {
             $this->servername = "127.0.0.1";
             $this->username = "root";

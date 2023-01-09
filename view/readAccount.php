@@ -20,7 +20,6 @@ foreach ($result as $value) {
 <li <?= isset($_GET['op']) && $_GET['op'] == 'update' ? 'class=active' : '' ?>><a href="?cat=auth&op=updateAccount&user_id=">Account gegevens wijzigen</a></li>
 <li <?= isset($_GET['op']) && $_GET['op'] == 'delete' ? 'class=active' : '' ?>><a href="?cat=auth&op=deleteUser&user_id=<?=$value["user_id"] ?>"> Account verwijderen</a></li>
 </div>
-
 <?php
 }
 

@@ -47,24 +47,6 @@
                 </li>
 
                 <div class="small-screen navbar-display">
-                    <li class="dropdown d-lg-none d-md-block d-xl-none d-sm-block">
-                        <a href="#homeSubmenu0" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <i class="material-icons">notifications</i><span> 4 notification</span></a>
-                        <ul class="collapse list-unstyled menu" id="homeSubmenu0">
-                            <li>
-                                <a href="#">You have 5 new messages</a>
-                            </li>
-                            <li>
-                                <a href="#">You're now friend with Mike</a>
-                            </li>
-                            <li>
-                                <a href="#">Wish Mary on her birthday!</a>
-                            </li>
-                            <li>
-                                <a href="#">5 warnings in Server Console</a>
-                            </li>
-                        </ul>
-                    </li>
 
                     <li class="d-lg-none d-md-block d-xl-none d-sm-block">
                         <a href="?cat=admin"><i class="material-icons">apps</i><span>apps</span></a>
@@ -105,17 +87,6 @@
                     <?php
                     }
                     ?>
-                    <?php
-
-                    if ($_SESSION['user_role'] == 2) {
-                    ?>
-                        <li>
-                            <a href="?cat=admin&op=overviewCinema"><i class="material-icons">visibility</i>Overzicht bioscopen</a>
-                        </li>
-                    <?php
-                    }
-                    ?>
-
 
             </ul>
 

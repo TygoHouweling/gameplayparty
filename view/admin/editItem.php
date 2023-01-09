@@ -27,4 +27,5 @@ include('./view/admin/admin_header.php');
     <?php
     }
     ?>
-</body>
+    <?php
+    include('./view/admin/admin_footer.php');

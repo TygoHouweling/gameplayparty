@@ -21,5 +21,5 @@ include('./view/admin/admin_header.php');
         </script>
         <input type="submit" name="submit">
     </form>
-
-</body>
+    <?php
+    include('./view/admin/admin_footer.php');

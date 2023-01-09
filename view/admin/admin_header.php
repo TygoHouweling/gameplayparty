@@ -43,7 +43,7 @@
             </div>
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
+                    <a href="?cat=admin" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
                 </li>
 
                 <div class="small-screen navbar-display">
@@ -55,44 +55,40 @@
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=readHomepageItems&page=1"><i class="material-icons">visibility</i> Overzicht home</a>
+                            <a href="?cat=admin&op=readHomepageItems&page=1"><i class="material-icons">visibility</i> <span>Overzicht home</span> </a>
                         </li>
                     <?php
                     }
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=readDisclaimerItems&page=2"><i class="material-icons">visibility</i> Overzicht disclaimer</a>
+                            <a href="?cat=admin&op=readDisclaimerItems&page=2"><i class="material-icons">visibility</i> <span>Overzicht disclaimer</span> </a>
                         </li>
                     <?php
                     }
-                    ?>
-                    <?php
-
-                    if ($_SESSION['user_role'] == 1) {
-                    ?>
-                        <li>
-                            <a href="?cat=admin&op=editCinema"><i class="material-icons">edit</i> Wijzig bioscoop</a>
-                        </li>
-                    <?php
-                    }
-                    ?>
-                    <?php
 
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=checkCinema"><i class="material-icons">check</i> Keur bioscopen goed</a>
+                            <a href="?cat=admin&op=checkCinema"><i class="material-icons">visibility</i> <span>Overzicht bioscopen</span> </a>
                         </li>
                     <?php
                     }
+
+                    if ($_SESSION['user_role'] == 2) {
+                    ?>
+                        <li>
+                            <a href="?cat=admin&op=checkCinema"><i class="material-icons">check</i> <span>Keur bioscopen goed</span> </a>
+                        </li>
+                    <?php
+                    }
+
+
                     ?>
                     <li>
-                        <a href="?cat=admin&op=editCinemaPage"><i class="material-icons">edit</i> Wijzig bioscoop</a>
+                        <a href="?cat=admin&op=editCinemaPage"><i class="material-icons">edit</i><span>Wijzig bioscoop</span> </a>
                     </li>
-
             </ul>
-
 
         </nav>
 

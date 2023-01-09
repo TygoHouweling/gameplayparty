@@ -192,10 +192,9 @@ class AdminController
         $cinema_city = $_POST['cinema_city'];
         $cinema_accessibility = $_POST['cinema_accessibility'];
         $cinema_description = $_POST['cinema_description'];
-        $cinema_password = isset($_POST['cinema_password']) && password_hash($_POST['cinema_password'], PASSWORD_BCRYPT) != '' ? $_POST['cinema_password'] : $result[0]['cinema_password'];
+        $cinema_password = isset($_POST['cinema_password']) && $_POST['cinema_password'] != '' ? password_hash($_POST['cinema_password'], PASSWORD_BCRYPT) : $result[0]['cinema_password'];
         if (filter_var($_POST['cinema_email'], FILTER_VALIDATE_EMAIL)) {
             $cinema_email = $_POST['cinema_email'];
-            $cinema_password = isset($_POST['cinema_password']) && password_hash($_POST['cinema_password'], PASSWORD_BCRYPT) != '' ? $_POST['cinema_password'] : $result[0]['cinema_password'];
         }
         $cinema_image = isset($_FILES['img']) && $_FILES['img']['name'] != '' ? $this->imageUpload($_FILES['img']) : $result[0]['cinema_image'];
 

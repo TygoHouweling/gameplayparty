@@ -19,7 +19,5 @@ include('./view/admin/admin_header.php')
             </div>
         </div>
     </div>
-</div>
-
 <?php
 include('./view/admin/admin_footer.php');

@@ -68,7 +68,7 @@ class AuthController
                 $_SESSION['user_lname'] = $row['user_lname'];
                 $_SESSION['user_role'] = $row['role'];
                 $_SESSION['user_id'] = $row['user_id'];
-                header('location:?cat=home');
+                header('location:?cat=admin');
             }
         }
         if (!isset($_SESSION['loggedIn'])) {

@@ -19,7 +19,6 @@ class AdminController
             case 'overview':
                 $this->collectShowAdminOverview();
                 break;
-
             case 'deleteItem':
                 $this->collectDeleteItem();
                 break;
@@ -38,12 +37,16 @@ class AdminController
             case 'editHomepageItem':
                 $this->collectEditItem();
                 break;
+            case 'checkCinema':
+                $this->collectCheckCinema();
+                break;
             default:
                 $this->collectShowAdminOverview();
         }
     }
 
-    public function collectDeleteItem(){
+    public function collectDeleteItem()
+    {
         $result = $this->AdminModel->deleteItem($_GET['item']);
 
         if ($_GET['page'] == 1) {
@@ -152,5 +155,22 @@ class AdminController
 
     private function imageDelete($file)
     {
+    }
+
+    private function collectCheckCinema()
+    {
+        if (!isset($_GET['action'])) {
+            $result = $this->AdminModel->checkCinemas();
+            include('./view/admin/checkCinemas.php');
+            return;
+        }
+        if ($_GET['action'] == 'accept') {
+            $this->AdminModel->acceptCinema($_GET['item']);
+        } elseif ($_GET['action'] == 'deny') {
+            $this->AdminModel->denyCinema($_GET['item']);
+        }
+
+        unset($_GET['action']);
+        $this->collectCheckCinema();
     }
 }

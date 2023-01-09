@@ -49,4 +49,22 @@ class AdminModel
         $result = $this->dataHandler->deleteData($sql);
         return $result;
     }
+
+    public function checkCinemas(){
+        $sql = "SELECT cinema_id, cinema_name FROM cinemas WHERE activated=0";
+        $result = $this->dataHandler->readsData($sql);
+        $result = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function acceptCinema($cinema_id) {
+        $sql = "UPDATE cinemas SET `activated` = 1 WHERE cinema_id=$cinema_id";
+        $result = $this->dataHandler->updateData($sql);
+        return $result;
+    }
+    public function denyCinema($cinema_id) {
+        $sql = "DELETE FROM cinemas WHERE cinema_id=$cinema_id";
+        $result = $this->dataHandler->deleteData($sql);
+        return $result;
+    }
 }

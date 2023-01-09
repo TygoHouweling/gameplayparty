@@ -73,14 +73,14 @@
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=readHomepageItems&page=1"><i class="material-icons">edit</i> Wijzig start pagina</a>
+                            <a href="?cat=admin&op=readHomepageItems&page=1"><i class="material-icons">visibility</i> Overzicht home</a>
                         </li>
                     <?php
                     }
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=readDisclaimerItems&page=2"><i class="material-icons">edit</i> Wijzig disclaimer pagina</a>
+                            <a href="?cat=admin&op=readDisclaimerItems&page=2"><i class="material-icons">visibility</i> Overzicht disclaimer</a>
                         </li>
                     <?php
                     }
@@ -96,10 +96,11 @@
                     }
                     ?>
                     <?php
+
                     if ($_SESSION['user_role'] == 2) {
                     ?>
-                        <li class="active">
-                            <a href="?cat=home&op=createCinema" class="dashboard"><i class="material-icons">add</i><span>Voeg bioscoop toe</span></a>
+                        <li>
+                            <a href="?cat=admin&op=checkCinema"><i class="material-icons">check</i> Keur bioscopen goed</a>
                         </li>
                     <?php
                     }
@@ -109,7 +110,7 @@
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=overviewCinema"><i class="material-icons">edit</i>Overzicht bioscopen</a>
+                            <a href="?cat=admin&op=overviewCinema"><i class="material-icons">visibility</i>Overzicht bioscopen</a>
                         </li>
                     <?php
                     }

@@ -27,14 +27,6 @@ include('./view/admin/admin_header.php');
             <input type="text" value="<?= $row['cinema_city'] ?>" name="cinema_city">
 
             <label for="mainContent">Bioscoop Toegangelijkheid </label>
-            <textarea id="mceDEMO" name="cinema_accessibility"><?= $row['cinema_accessibility'] ?></textarea>
-            <script>
-                tinymce.init({
-                    selector: 'textarea',
-                    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-                    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-                });
-            </script>
             <label for="mainContent">Bioscoop Beschrijving</label>
             <textarea id="mceDEMO" name="cinema_description"><?= $row['cinema_description'] ?></textarea>
             <script>
@@ -44,6 +36,15 @@ include('./view/admin/admin_header.php');
                     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
                 });
             </script>
+            <textarea id="mceDEMO" name="cinema_accessibility"><?= $row['cinema_accessibility'] ?></textarea>
+            <script>
+                tinymce.init({
+                    selector: 'textarea',
+                    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+                    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                });
+            </script>
+
 
             <label for="image">Bioscoop Foto</label>
             <input type="file" name="img" accept="image/*" id="img">

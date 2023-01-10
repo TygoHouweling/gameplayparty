@@ -74,7 +74,8 @@ class AdminModel
     public function readCinema()
     {
         $session = $_SESSION['cinema_id'];
-        $sql = "SELECT * FROM cinemas WHERE cinema_id=$session";
+        $item = isset($_GET['item'])?$_GET['item']:$session;
+        $sql = "SELECT * FROM cinemas WHERE cinema_id=$item";
         $result = $this->dataHandler->readsData($sql);
         $result = $result->fetchAll(PDO::FETCH_ASSOC);
         return ($result);
@@ -83,6 +84,7 @@ class AdminModel
     public function editCinema($cinema_name, $cinema_email, $cinema_housenumber, $cinema_housenumber_addition, $cinema_street, $cinema_postalcode, $cinema_city, $cinema_description, $cinema_password, $cinema_image, $cinema_accessibility)
     {
         $session = $_SESSION['cinema_id'];
+        $item = isset($_GET['item'])?$_GET['item']:$session;
         $sql = "UPDATE cinemas SET
         `cinema_name` = '$cinema_name',
         `cinema_email` = '$cinema_email',
@@ -96,7 +98,7 @@ class AdminModel
         `cinema_password` = '$cinema_password',
         `cinema_accessibility` = '$cinema_accessibility',
         `cinema_image` = '$cinema_image'
-        WHERE cinema_id=$session";
+        WHERE cinema_id=$item";
         $result = $this->dataHandler->updateData($sql);
         return ($result);
     }
@@ -110,7 +112,7 @@ class AdminModel
     }
     public function disableCinema($item)
     {
-        $sql = "UPDATE cinemas SET `activated` = 0";
+        $sql = "UPDATE cinemas SET `activated` = 0 WHERE cinema_id = $item";
         $result = $this->dataHandler->updateData($sql);
         return $result;
     }

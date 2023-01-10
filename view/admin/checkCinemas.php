@@ -7,8 +7,9 @@ include('./view/admin/admin_header.php');
     <table class="table">
         <thead class="thead-light">
             <tr>
-                <th scope="col">cinema_name</th>
+                <th scope="col">Name</th>
                 <th scope="col">Approve</th>
+                <th scope="col">Deny</th>
             </tr>
         </thead>
         <tbody>

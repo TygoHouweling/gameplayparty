@@ -70,11 +70,10 @@
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>
-                            <a href="?cat=admin&op=checkCinema"><i class="material-icons">visibility</i> <span>Overzicht bioscopen</span> </a>
+                            <a href="?cat=admin&op=activeCinemas"><i class="material-icons">visibility</i> <span>Overzicht bioscopen</span> </a>
                         </li>
                     <?php
                     }
-
                     if ($_SESSION['user_role'] == 2) {
                     ?>
                         <li>

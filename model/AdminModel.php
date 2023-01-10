@@ -80,7 +80,7 @@ class AdminModel
         return ($result);
     }
 
-    public function editCinema($cinema_name, $cinema_email, $cinema_housenumber, $cinema_housenumber_addition, $cinema_street, $cinema_postalcode, $cinema_city, $cinema_description, $cinema_password, $cinema_image,$cinema_accessibility)
+    public function editCinema($cinema_name, $cinema_email, $cinema_housenumber, $cinema_housenumber_addition, $cinema_street, $cinema_postalcode, $cinema_city, $cinema_description, $cinema_password, $cinema_image, $cinema_accessibility)
     {
         $session = $_SESSION['cinema_id'];
         $sql = "UPDATE cinemas SET
@@ -98,6 +98,20 @@ class AdminModel
         `cinema_image` = '$cinema_image'
         WHERE cinema_id=$session";
         $result = $this->dataHandler->updateData($sql);
-        return($result);
+        return ($result);
+    }
+
+    public function readCinemas()
+    {
+        $sql = "SELECT * FROM cinemas WHERE `activated` = 1";
+        $result = $this->dataHandler->readsData($sql);
+        $result = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    public function disableCinema($item)
+    {
+        $sql = "UPDATE cinemas SET `activated` = 0";
+        $result = $this->dataHandler->updateData($sql);
+        return $result;
     }
 }

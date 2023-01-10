@@ -40,6 +40,9 @@ class AdminController
             case 'checkCinema':
                 $this->collectCheckCinema();
                 break;
+            case 'activeCinemas':
+                $this->collectReadCinemas();
+                break;
             case 'editCinemaPage':
                 $this->collectEditCinema();
                 break;
@@ -202,5 +205,20 @@ class AdminController
 
         unset($_POST);
         $this->collectEditCinema();
+    }
+
+    private function collectReadCinemas()
+    {
+        if (!isset($_GET['action'])) {
+            $result = $this->AdminModel->readCinemas();
+            include('./view/admin/readCinemas.php');
+            return;
+        }
+        if ($_GET['action'] == 'disable') {
+            $this->AdminModel->disableCinema($_GET['item']);
+        }
+
+        unset($_GET['action']);
+        $this->collectReadCinemas();
     }
 }

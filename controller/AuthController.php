@@ -78,7 +78,6 @@ class AuthController
 
     public function collectLogoutRequest()
     {
-
         unset($_SESSION['loggedIn']);
         unset($_SESSION['cinema_name']);
         unset($_SESSION['cinema_id']);

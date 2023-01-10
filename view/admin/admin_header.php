@@ -42,15 +42,18 @@
                 <h3><span>Admin Panel</span></h3>
             </div>
             <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="?cat=admin" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
-                </li>
+
 
                 <div class="small-screen navbar-display">
-
-                    <li class="d-lg-none d-md-block d-xl-none d-sm-block">
-                        <a href="?cat=admin"><i class="material-icons">apps</i><span>apps</span></a>
-                    </li>
+                    <?php
+                    if ($_SESSION['user_role'] == 2) {
+                    ?>
+                        <li class="active">
+                            <a href="?cat=admin" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
+                        </li>
+                    <?php
+                    }
+                    ?>
                     <?php
                     if ($_SESSION['user_role'] == 2) {
                     ?>
@@ -81,12 +84,22 @@
                         </li>
                     <?php
                     }
-
-
                     ?>
+
+                    <?php
+                    if ($_SESSION['user_role'] == 1) {
+                    ?>
+                        <li>
+                            <a href="?cat=admin&op=editCinemaPage"><i class="material-icons">edit</i><span>Wijzig bioscoop</span> </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
+
                     <li>
-                        <a href="?cat=admin&op=editCinemaPage"><i class="material-icons">edit</i><span>Wijzig bioscoop</span> </a>
+                        <a href="?cat=auth&op=logout"><i class="material-icons">logout</i><span>Logout</span> </a>
                     </li>
+
             </ul>
 
         </nav>
@@ -109,16 +122,6 @@
                         <button class="d-inline-block d-lg-none ml-auto more-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="material-icons">more_vert</span>
                         </button>
-
-                        <div class="collapse navbar-collapse d-lg-block d-xl-block d-sm-none d-md-none d-none" id="navbarSupportedContent">
-                            <ul class="nav navbar-nav ml-auto">
-                                <li class="dropdown nav-item active">
-                                    <a href="?cat=auth&op=logout" class="nav-link" data-toggle="dropdown">
-                                        <span class="material-icons">logout</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </nav>
             </div>

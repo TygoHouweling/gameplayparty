@@ -11,7 +11,7 @@ class HomeModel
 
   public function showCinemas()
   {
-    $sql = "SELECT cinema_id, cinema_name, cinema_description, cinema_accessibility FROM cinemas";
+    $sql = "SELECT * FROM cinemas WHERE NOT role=2";
     $result = $this->DataHandler->readsData($sql);
     $result = $result->fetchAll(PDO::FETCH_ASSOC);
 

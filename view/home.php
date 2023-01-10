@@ -99,7 +99,6 @@ include('./view/header_home.php');
         <div class="card__content">
           <h1 class="card__header">A starry night</h1>
           <p class="card__text">Look up at the night sky, and find yourself <strong>immersed</strong> in the amazing mountain range of Aspen. </p>
-          <button class="card__btn">Explore <span>&rarr;</span></button>
         </div>
       </div>
     </div>
@@ -108,7 +107,6 @@ include('./view/header_home.php');
         <div class="card__content">
           <h1 class="card__header">Misty mornings</h1>
           <p class="card__text">Capture the stunning <strong>essence</strong> of the early morning sunrise in the Californian wilderness.</p>
-          <button class="card__btn">Explore <span>&rarr;</span></button>
         </div>
       </div>
     </div>
@@ -117,7 +115,6 @@ include('./view/header_home.php');
         <div class="card__content">
           <h1 class="card__header">Utah sunsets</h1>
           <p class="card__text">Sunsets over the <strong>stunning</strong> Utah Canyonlands, is truly something much more than incredible.</p>
-          <button class="card__btn">Explore <span>&rarr;</span></button>
         </div>
       </div>
     </div>

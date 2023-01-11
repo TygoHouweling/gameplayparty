@@ -659,6 +659,13 @@ transition:all .25s;
   width:100%;
   
 }
+/* 
+.card__description p:not(:first-child) {
+  display: none;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+} */
+
 @media (max-width: 60em) {
   .container1{
     padding:2.5rem;

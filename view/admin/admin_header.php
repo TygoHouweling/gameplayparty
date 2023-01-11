@@ -95,6 +95,15 @@
                     <?php
                     }
                     ?>
+                    <?php
+                    if ($_SESSION['user_role'] == 1) {
+                    ?>
+                        <li>
+                            <a href="?cat=admin&op=readLounges"><i class="material-icons">edit</i><span>Wijzig zalen</span> </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
 
                     <li>
                         <a href="?cat=auth&op=logout"><i class="material-icons">logout</i><span>Logout</span> </a>

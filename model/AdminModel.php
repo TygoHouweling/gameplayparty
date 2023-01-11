@@ -74,7 +74,7 @@ class AdminModel
     public function readCinema()
     {
         $session = $_SESSION['cinema_id'];
-        $item = isset($_GET['item'])?$_GET['item']:$session;
+        $item = isset($_GET['item']) ? $_GET['item'] : $session;
         $sql = "SELECT * FROM cinemas WHERE cinema_id=$item";
         $result = $this->dataHandler->readsData($sql);
         $result = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -84,7 +84,7 @@ class AdminModel
     public function editCinema($cinema_name, $cinema_email, $cinema_housenumber, $cinema_housenumber_addition, $cinema_street, $cinema_postalcode, $cinema_city, $cinema_description, $cinema_password, $cinema_image, $cinema_accessibility)
     {
         $session = $_SESSION['cinema_id'];
-        $item = isset($_GET['item'])?$_GET['item']:$session;
+        $item = isset($_GET['item']) ? $_GET['item'] : $session;
         $sql = "UPDATE cinemas SET
         `cinema_name` = '$cinema_name',
         `cinema_email` = '$cinema_email',
@@ -115,5 +115,42 @@ class AdminModel
         $sql = "UPDATE cinemas SET `activated` = 0 WHERE cinema_id = $item";
         $result = $this->dataHandler->updateData($sql);
         return $result;
+    }
+
+    public function readLounges()
+    {
+        $session = $_SESSION['cinema_id'];
+        $sql = "SELECT lounge_id,lounge_name FROM lounges WHERE cinema_id=$session AND `enabled` = 1";
+        $result = $this->dataHandler->readsData($sql);
+        $result = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function readLounge($item)
+    {
+        $sql = "SELECT * FROM lounges WHERE lounge_id=$item";
+        $result = $this->dataHandler->readsData($sql);
+        $result = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function updateLounge($lounge_name, $amount_chairs, $wheelchair_places, $screensize, $item)
+    {
+        $sql = "UPDATE lounges SET `lounge_name` = '$lounge_name',`amount_chairs` = '$amount_chairs',`wheelchair_places` = '$wheelchair_places',`screensize` = '$screensize' WHERE lounge_id = $item";
+        $result = $this->dataHandler->updateData($sql);
+        return $result;
+    }
+
+    public function createLounge($lounge_name, $amount_chairs, $wheelchair_places, $screensize)
+    {
+        $cinema_id = $_SESSION['cinema_id'];
+        $sql = "INSERT INTO lounges (cinema_id, lounge_name,amount_chairs,wheelchair_places,screensize) VALUES ('$cinema_id','$lounge_name','$amount_chairs','$wheelchair_places','$screensize')";
+        $result = $this->dataHandler->createData($sql);
+        return $result;
+    }
+
+    public function disableLounge($item){
+        $sql = "UPDATE lounges SET `enabled` = 0";
+        $result = $this->dataHandler->updateData($sql);
     }
 }

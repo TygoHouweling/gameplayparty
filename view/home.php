@@ -91,26 +91,32 @@ include('./view/header_home.php');
   ?>
 </div>
 </div>
-<h2 style="text-align: center">Uitgelichte Bioscopen</h2>
+<div class="cinemas_homepage">
+  <h2 style="text-align: center">Uitgelichte Bioscopen</h2>
 
-<div class="container1">
-  <div class="grid">
-    <?php
-    foreach ($cinema_highlighted as $row) {
-    ?>
-      <div class="grid__item">
-        <div class="card"><img class="card__img" src="<?= $row['cinema_image'] ?>" alt="Canyons">
-          <div class="card__content">
-            <h2 class="card__header"><?= $row['cinema_name'] ?></h2>
-            <p class="card__text"><?= $row['cinema_description'] ?></p>
+  <div class="container1">
+    <div class="grid">
+      <?php
+      foreach ($cinema_highlighted as $row) {
+      ?>
+        <div class="grid__item">
+          <div class="card"><img class="card__img" src="<?= $row['cinema_image'] ?>" alt="Canyons">
+            <div class="card__content">
+              <h2 class="card__header"><?= $row['cinema_name'] ?></h2>
+              <div class="card__description" id="cinema_<?= $row['cinema_id'] ?>">
+                <?= $row['cinema_description'] ?>
+                <!-- <button onclick="cinemaReadMore(<?= $row['cinema_id'] ?>)">Read more</button> -->
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    <?php
-    }
-    ?>
+      <?php
+      }
+      ?>
+    </div>
   </div>
 </div>
+
 
 <div id="myModal" class="modal">
 

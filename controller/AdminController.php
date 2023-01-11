@@ -46,6 +46,18 @@ class AdminController
             case 'editCinemaPage':
                 $this->collectEditCinema();
                 break;
+            case 'readLounges':
+                $this->collectReadLounges();
+                break;
+            case 'editLounge':
+                $this->collectEditLounge();
+                break;
+            case 'createLounge':
+                $this->collectCreateLounge();
+                break;
+            case 'disableLounge':
+                $this->collectDisableLounge();
+                break;
             default:
                 $this->collectShowAdminOverview();
         }
@@ -219,5 +231,50 @@ class AdminController
 
         unset($_GET['action']);
         $this->collectReadCinemas();
+    }
+
+    private function collectReadLounges()
+    {
+        $result = $this->AdminModel->readLounges();
+
+        include('./view/admin/readLoungeItems.php');
+    }
+
+    private function collectEditLounge()
+    {
+        if (!isset($_POST['submit'])) {
+            $item = $_GET['item'];
+            $result = $this->AdminModel->readLounge($item);
+            include('./view/admin/editLounge.php');
+            return;
+        }
+        $item = $_GET['item'];
+        $lounge_name = $_POST['lounge_name'];
+        $amount_chairs = $_POST['amount_chairs'];
+        $wheelchair_places = $_POST['wheelchair_places'];
+        $screensize = $_POST['screensize'];
+        $result = $this->AdminModel->updateLounge($lounge_name, $amount_chairs, $wheelchair_places, $screensize, $item);
+
+        $this->collectReadLounges();
+    }
+
+    private function collectCreateLounge(){
+        if (!isset($_POST['submit'])) {
+            include('./view/admin/createLounge.php');
+            return;
+        }
+        $lounge_name = $_POST['lounge_name'];
+        $amount_chairs = $_POST['amount_chairs'];
+        $wheelchair_places = $_POST['wheelchair_places'];
+        $screensize = $_POST['screensize'];
+        $result = $this->AdminModel->createLounge($lounge_name, $amount_chairs, $wheelchair_places, $screensize);
+        $this->collectReadLounges();
+    }
+
+    private function collectDisableLounge(){
+        $lounge = $_GET['item'];
+        $result = $this->AdminModel->disableLounge($lounge);
+        $this->collectReadLounges();
+
     }
 }

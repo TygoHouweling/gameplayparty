@@ -9,7 +9,7 @@ include('./view/admin/admin_header.php');
         foreach ($result as $row) {
 
         ?>
-            <form style="display: flex; justify-content:center; flex-direction:column" method="post" action="?cat=admin&op=editCinemaPage&item=<?= $_GET['item'] ?>" enctype="multipart/form-data">
+            <form style="display: flex; justify-content:center; flex-direction:column" method="post" action="?cat=admin&op=editCinemaPage&item=<?= isset($_GET['item'])?$_GET['item']:$_SESSION['cinema_id']; ?>" enctype="multipart/form-data">
                 <label for="h2">Bioscoop naam</label>
                 <input type="text" value="<?= $row['cinema_name'] ?>" name="cinema_name">
                 <label for="h2">Bioscoop email</label>

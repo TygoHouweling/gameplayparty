@@ -24,16 +24,15 @@
                 <li <?= isset($_GET['op']) && ($_GET['op']== 'disclaimers') ? 'class=active' : '' ?>><a href="?cat=home&op=disclaimers&page=2">Disclaimers</a></li>
                 <li <?= isset($_GET['op']) && ($_GET['op'] == 'cinemasOverview' || $_GET['op'] == 'cinema') ? 'class=active' : '' ?>><a href="?cat=home&op=cinemasOverview">Bioscopen</a></li>
                 <?php
-                if (isset($_SESSION['loggedIn'])) {
+                // if (isset($_SESSION['loggedIn'])) {
                 ?>
-                    <li <?= isset($_GET['op']) && $_GET['op'] == 'logout' ? 'class=active' : '' ?>><a href="?cat=auth&op=logout">logout</a></li>
+                    <!-- <li <?= isset($_GET['op']) && $_GET['op'] == 'logout' ? 'class=active' : '' ?>><a href="?cat=auth&op=logout">logout</a></li> -->
                 <?php
-                } else {
+                // } else {
                 ?>
-                    <li <?= isset($_GET['op']) && $_GET['op'] == 'login' ? 'class=active' : '' ?>><a href="?cat=auth&op=login">Login</a></li>
-
+                    <!-- <li <?= isset($_GET['op']) && $_GET['op'] == 'login' ? 'class=active' : '' ?>><a href="?cat=auth&op=login">Login</a></li> -->
                 <?php
-                }
+                // }
                 ?>
             </ul>
         </div>

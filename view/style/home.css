@@ -302,7 +302,7 @@ a {
 
 img {
   height: auto;
-  max-width: 100%;
+  width: 200%;
 }
 
 .loginForm {
@@ -377,7 +377,7 @@ img {
 
 img {
   height: auto;
-  max-width: 100%;
+  max-width: 160%;
 }
 
 /*update account*/

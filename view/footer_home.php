@@ -13,10 +13,13 @@
 
     <p class="footer-links">
       <a class="link-1" href="index.php?cat=home">Home</a>
+      <a href="index.php?cat=home&op=disclaimers&page=2">Disclaimers</a>
+        <a href="index.php?cat=home&op=cinemasOverview">Bioscopen</a>
+        <a href="index.php?cat=auth&op=login">Login</a>
       <?php
       if (isset($_SESSION['loggedIn'])) {
       ?>
-        <a href="index.php?cat=home&op=createCinema">Bioscoop Toevoegen</a>
+        <a href="index.php?cat=home&op=createCinema">Bioscoop Toevoegen</a>`
       <?php
       }
       ?>

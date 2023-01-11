@@ -19,7 +19,6 @@
       <?php
       if (isset($_SESSION['loggedIn'])) {
       ?>
-        <a href="index.php?cat=home&op=createCinema">Bioscoop Toevoegen</a>`
       <?php
       }
       ?>

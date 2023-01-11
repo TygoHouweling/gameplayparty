@@ -145,7 +145,6 @@ class AdminController
 
     private function imageUpload($file)
     {
-        var_dump($file['name']);
 
         $random_hex = bin2hex(random_bytes(8));
         $target_dir = "./view/img/uploaded/";

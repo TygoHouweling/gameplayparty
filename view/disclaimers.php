@@ -50,7 +50,7 @@ include('./view/header_home.php');
     <?php
     }
     ?>
-</div>02
+</div>
 </div>
 
 

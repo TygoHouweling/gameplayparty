@@ -37,5 +37,5 @@ include('./view/admin/admin_header.php');
         </table>
         <a href="?cat=admin&op=createItem&page=1"><i class="material-icons"> add</i></a>
     </div>
-        <?php
-        include('./view/admin/admin_footer.php');
+    <?php
+    include('./view/admin/admin_footer.php');

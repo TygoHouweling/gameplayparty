@@ -17,9 +17,6 @@ class HomeController
             case 'home':
                 $this->collectShowHome();
                 break;
-            case 'disclaimer':
-                $this->collectShowDisclaimers();
-                break;
             case 'cinemasOverview':
                 $this->collectShowCinemas();
                 break;
@@ -46,6 +43,7 @@ class HomeController
     {
         $page = isset($_GET['page']) ? $_GET['page'] : 1;
         $result = $this->HomeModel->showPage($page);
+        $cinema_highlighted = $this->HomeModel->showCinemas(3);
         if ($page == 1) {
             include('./view/home.php');
         } elseif ($page == 2) {

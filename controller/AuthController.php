@@ -117,7 +117,6 @@ class AuthController
     public function collectAccountRequest()
     {
         $id = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : null;
-        // var_dump($id);
         $array = $this->AuthModel->readAccount($id);
         $result = $array->fetchAll(PDO::FETCH_ASSOC);
 

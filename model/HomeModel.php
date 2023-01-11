@@ -9,9 +9,13 @@ class HomeModel
     $this->DataHandler = new DataHandler;
   }
 
-  public function showCinemas()
+  public function showCinemas($limit = 0)
   {
-    $sql = "SELECT * FROM cinemas WHERE NOT role=2";
+    if($limit == 0){
+      $sql = "SELECT * FROM cinemas WHERE NOT role=2";
+    } else {
+      $sql = "SELECT * FROM cinemas WHERE NOT role=2 LIMIT $limit";
+    }
     $result = $this->DataHandler->readsData($sql);
     $result = $result->fetchAll(PDO::FETCH_ASSOC);
 
